@@ -1,0 +1,41 @@
+Buenas,
+
+Con la clase práctica de hoy, ya cuentan con todo lo que necesitan para armar el informe de la primer entrega del trabajo práctico. Algunos me preguntaron que se espera en el informe del trabajo práctico que tienen que entregar, asi que la idea de este mail es orientarlos un poco sobre esta cuestión. Tengan en cuenta que para la entrega del borrador no tienen que tener todo el informe.
+
+Con respecto a qué entregables deben estar en el informe para la entrega del 27 de Abril, les pedimos:
+- Modelo de objetivos: diagramas y descripciones.
+- Diagrama de contexto.
+- Escenarios representativos de uso. (No confundir con casos de uso. Casos de uso NO entra en este TP.)
+
+- ¿Esto quiere decir que el informe debe ser la concatenación de estos modelos?
+- ¡Claro que no! Eso sería imposible de leer.
+
+- ¿Entonces qué queremos?
+- Algo legible. Por ejemplo, les tiro ideas (utilicen las que les sean útiles en su contexto):
+  
+* Armar diagramas de contexto distintos en el caso de las alternativas. Esto permite mostrar claramente qué agentes están involucrados en cada solución y de qué manera interactúan.
+* Numerar todos los objetivos y en las descripciones (o en los diagramas de contexto) utilizar referencias cuando lo consideren que aclara algún punto.
+* Agregar llamadas (tipo "*" o con flechas ajenas a la notación estándar) en los diagramas para incorporar detalles que les parezcan pertinentes. La información que aparece visualmente cercana a un diagrama queda mucho más clara que si se pone en el medio de un enorme
+texto.
+* Ubicar las descripciones de los objetivos más importantes en el cuerpo principal del informe y armar un apéndice donde se incluyan las descripciones (o incluso diagramas) que consideran secundarios y de lectura opcional.
+* Ponerle nombres a las alternativas en los diagramas de objetivos.
+Esto permite rápidamente identificar una rama y entender qué alternativa propone. Por ejemplo: el clásico "manual" vs "automático".
+
+Por otra parte, y esto NO ES OPCIONAL, el informe que entreguen debe tener como mínimo las siguientes secciones. Algunas de las cuales puede que sean únicamente unos 2 ó 3 párrafos.
+
+- Introducción: acá debería figurar todo lo necesario como para que un lector no iniciado en el tema entienda el propósito general del sistema que van a describir. Puede citar algunos fragmentos del enunciado si lo consideran necesario, pero NO DEBE SER una copia del
+enunciado.
+
+- Presunciones: acá deberían listar aquellas cuestiones que asumieron por encima del enunciado. Estas cuestiones pueden provenir de alguna consulta con docentes. También pueden provenir de alguna especulación o interpretación que el grupo hizo.
+
+- Vistas: está sería la parte principal del TP. Acá irían los diagramas y los escenarios representativos de uso. No necesariamente tiene que ser una gran sección, sino que pueden partirla por funcionalidades y a su vez por tipo de vista o de la forma que crean
+más pertinente. Esta sección NO DEBE SER una simple seguidilla de figuras sueltas. Debe estar acompañada de tantas explicaciones como sean necesarias para que se aprecie un hilo conductor.
+
+- Discusión: debe contener un análisis general de las distintas alternativas y su impacto en los objetivos blandos. NO DEBE SER una lista de lo que ya se puede desprender del diagrama. Debe ser un análisis más cualitativo y "a vuelo de pájaro" que permita entender este asunto en pocas palabras. Esta sección también es ideal para que vuelquen las cosas que puedan haberles quedado "flojas" o no cerradas del todo: por ejemplo los potenciales conflictos entre objetivos, los aspectos que podrían hacer que todo el sistema no funcione como
+desean, etc.
+
+- Conclusiones: mencionar brevemente de qué formas les resultó más sencillo encarar el TP. Por ejemplo en qué orden realizaron los diagramas, qué aspectos presentaron las mayores dificultades, etc.
+
+Saludos,
+
+Christian

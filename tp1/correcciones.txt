@@ -1,0 +1,22 @@
+- Clientes ingresan proyectos (nada, que los clientes tiene que poder ingresar proyectos, creo que lo teníamos contemplado pero bueno). 
+
+- Tiene que definirse el alcance del proyecto, esto lo hacen el PM con el cliente. Y el cliente debe aprobar dicho alcance, solo después de eso se buscan proveedores. Esto tiene sentido para la parte del filtro de búsqueda de proveedores (una vez que está definido el alcance del proyecto, se buscan proveedores acordes a eso). 
+
+- Una cosa es que no parecía tener mucho sentido que lo de la lista/base de proveedores cuelgue de conseguir nuevos proyectos. Son cosas medio independientes. 
+Después está el tema del seguro de caución de los proveedores. El sistema debería guardar la fecha de vencimiento de dicho seguro (el admin es el encargado de pinchar a los proveedores para que envíen su seguro actualizado escaneado, por ejemplo). Esa fecha de vencimiento se debería usar en el sistema para saber si un proveedor es compatible con el trabajo (en el momento en el que le pedís al sistema la lista de proveedores). También está el tema de las alertas sobre el seguro (es decir, que el sistema envíe notificaciones si un seguro se está por vencer/se venció/se venció hace mucho/etc. Al proveedor y al admin). Y por último, el proveedor tiene que tener la posibilidad de enviar dicho seguro al día de varias maneras. 
+
+- Acá no me acuerdo mucho la verdad, perdonen. Creo que lo que estaría mal es que gerente aprueba propuesta no debería colgar de la elección de propuesta de proveedor. El PM consigue las propuestas a partir de los proveedores que filtra, elige una, luego el gerente la aprueba. Tal vez debería ir como un hito. 
+
+- Temas de los contratos. El que llena el contrato es el PM (o sea, el que agarra el template y lo completa acorde a la propuesta). Gerente confirma la propuesta y los costos. 
+Luego el cliente acepta la propuesta, que se compone de que: tiene que llegarle el contrato, lo firma, y envía (acá puede ser con varias opciones, tal vez se juntan, le da el contrato en mano y lo firma, tal vez el contrato va en pdf por mail, lo imprime y envía la hoja firmada impresa). Idem con el proveedor. 
+
+- Seguimiento: (creo que la flechita para arriba es que debería estar más arriba en el diagrama?) tiene que poder cargarse y consultarse la información de seguimiento, y tiene que haber alertas y avisos (nos estarán faltando algunos tipos de alertas/avisos). 
+Después está el tema de los ajustes, si entiendo bien, son esos 3 items, y cambiar el proveedor usaría elegir proveedor, y adicionales proyecto usaría gestionar proyecto. Algo así. 
+
+- Faltan los requerimientos del sistema! Esto responde a la duda constante que teníamos de 'esto es responsabilidad de X o de sistema?'. Bueno, de ambos. Lo que debería pasar que es que ese objetivo se divida en 2, una parte que es la interacción para X, y otra parte que es que el sistema provea una interfaz para X. Me dijo que si esto nos queda muy engorroso después, se pude abusar esta notación y simplemente hacemos que X y sistema cuelguen del mismo objetivo. Esto es importante, los requerimientos de sistema son justamente los objetivos que debe tiene que cumplir el sistema, y los tenemos que listar aparte en el informe según lo que hayamos conseguido en el diagrama. 
+
+- Faltan los PAGOS! Sí, el sistema no se encargaba de nada de pagos, pero es un objetivo de la empresa. El dominio del diagrama entero no es el sistema en sí, es todo :/ 
+
+- Terminación. Como que son 2 cosas "distintas" terminar la obra (más de nivel PM) que finalizar un proyecto (más a nivel gerente), que ahí ya está cerrado y pagado. 
+
+- Falta utilizar información estadística. Esto es distinto a que el sistema use cosas estadísticas para mejorar las búsquedas, sino que es más a nivel "historial". Es decir, se debería poder consultar cosas como una lista de proyectos realizados, cuáles fueron asignados a cada PM, etc. Y esto serviría para la toma de decisiones a nivel gerencial (como conseguir nuevos rubros o PMs). Esto no sé a qué nivel de detalle habría que ponerlo, yo creo que bastante bajo. 
