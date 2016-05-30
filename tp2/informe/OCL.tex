@@ -1,7 +1,7 @@
 \section{Modelo conceptual}
 \subsection{Condiciones OCL}
 \begin{itemize}
-		\item	Lugares en donde se pueden redefinir cosas:
+		\item	\textbf{Momentos en los cuales se puede redefinir el PM o proveedor de un proyecto:}
 	
 			Context: Proyecto
 			
@@ -10,7 +10,7 @@
 				self.redefiniendoPM $\Rightarrow$			& EligiendoPM < self.Status $\leq$ ObraEnCurso			\\
 			\end{tabular}
 
-	\item Qu\'e tiene que pasar con el proyecto en cada estado:
+	\item \textbf{Estado del proyecto:}
 
 			Context: Proyecto
 			
@@ -32,7 +32,7 @@
 														& \notEmpty{self.FeedbackPM}			\\
 			\end{tabular}
 			
-	\item Seguro de caución al día
+	\item \textbf{Seguro de caución al día:}
 	
 			Context: Proyecto
 			
@@ -44,5 +44,17 @@
 				& self.ProveedorActual.Seguro.Vencimiento $\geq$ ContratoProveedor(self, self.ProveedorActual).FechaFin	\\
 			\end{tabular}
 				
-	\item 
+	\item \textbf{Los autores de reportes son PM del proyecto:}
+		
+			Context: Reporte de estado 
+			
+			\notEmpty{self.Autor.SupervisaHistorico $\rightarrow$ filter(p | p == self.Proyecto)}
+	
+	\item \textbf{Los estados del proyecto pero para el otro lado?}
+	\item \textbf{Fechas de los reportes?}
+	\item \textbf{Solapamiento de PMs historico?}
+	\item \textbf{Solapamiento de proveedores historico?}
+	\item \textbf{Porcentaje de las comisiones}
+	\item \textbf{Fechas de fin luego de fechas de inicio}
+	
 \end{itemize}
