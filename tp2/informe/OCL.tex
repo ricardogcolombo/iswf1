@@ -1,0 +1,48 @@
+\section{Modelo conceptual}
+\subsection{Condiciones OCL}
+\begin{itemize}
+		\item	Lugares en donde se pueden redefinir cosas:
+	
+			Context: Proyecto
+			
+			\begin{tabular}{ll}
+				self.redefiniendoProveedor $\Rightarrow$	& BuscandoProveedor < self.Status $\leq$ ObraEnCurso	\\
+				self.redefiniendoPM $\Rightarrow$			& EligiendoPM < self.Status $\leq$ ObraEnCurso			\\
+			\end{tabular}
+
+	\item Qu\'e tiene que pasar con el proyecto en cada estado:
+
+			Context: Proyecto
+			
+			\begin{tabular}{ll}
+				\laterThan{EligiendoPM}				& \notEmpty{self.supervisaHistorico} and						\\
+													& ((self.redefiniendoPM) xor (\notEmpty{self.supervisaActual}))	\\
+				
+				and \laterThan{DefiniendoAlcance}	& \notEmpty{self.alcance} \\
+				
+				and \laterThan{BuscandoProveedor}	& \notEmpty{self.proveedorHistorico} and	\\
+													& (self.redefiniendoProveedor xor			\\
+													& (\notEmpty{self.proveedorActual}))		\\
+				
+				and \laterThan{FirmandoContratos}	& \notEmpty{contratoCliente(self, self.Solicitante)} and	\\
+													& (self.redefiniendoProveedor xor							\\
+													& \notEmpty{contratoProveedor(self, self.ProveedorActual)})	\\
+				
+				and \laterThan{ConsiguiendoFeedback}	& \notEmpty{self.FeedbackProveedor} and	\\
+														& \notEmpty{self.FeedbackPM}			\\
+			\end{tabular}
+			
+	\item Seguro de caución al día
+	
+			Context: Proyecto
+			
+			\notEmpty{self.ProveedorActual} and self.Status $\leq$ ObraEnCurso $\Rightarrow$
+			
+			\begin{tabular}{ll}
+				\hfill
+				& \notEmpty{self.ProveedorActual.Seguro} and	\\
+				& self.ProveedorActual.Seguro.Vencimiento $\geq$ ContratoProveedor(self, self.ProveedorActual).FechaFin	\\
+			\end{tabular}
+				
+	\item 
+\end{itemize}

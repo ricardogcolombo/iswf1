@@ -1,0 +1,137 @@
+\documentclass[a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{charter}   % tipografia
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{algorithm}
+\usepackage{algorithmic}[1]
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{subfig}
+\usepackage[colorlinks=true, linkcolor=black]{hyperref}
+%\usepackage{makeidx}
+%\usepackage{float}
+\usepackage{calc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsfonts}
+\usepackage{tabularx}
+\usepackage{multirow}
+%\usepackage{sectsty}
+%\usepackage{charter}
+%\usepackage{wrapfig}
+%\usepackage{listings}
+%\lstset{language=C}
+\definecolor{gray}{gray}{0.5}
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{orange}{rgb}{1,0.5,0}
+
+\input{codesnippet}
+\input{page.layout}
+% \setcounter{secnumdepth}{2}
+\usepackage{underscore}
+\usepackage{caratula}
+\usepackage{url}
+\usepackage{float}
+
+\newcommand{\cod}[1]{{\tt #1}}
+\newcommand{\negro}[1]{{\bf #1}}
+\newcommand{\ital}[1]{{\em #1}}
+\newcommand{\may}[1]{{\sc #1}}
+\newcommand{\tab}{\hspace*{2em}}
+
+\newcommand{\apply}[1]{{$\rightarrow$ #1()}}
+\newcommand{\notEmpty}[1]{{#1\apply{count} > 0}}
+\newcommand{\laterThan}[1]{{self.Status > #1 $\Rightarrow$}}
+
+\hypersetup{
+ pdfstartview= {FitH \hypercalcbp{\paperheight-\topmargin-1in-\headheight}},
+ pdfauthor={Grupo},
+ pdfsubject={Dise\~{n}o}
+}
+
+\lstdefinestyle{customc}{
+  backgroundcolor=\color{light-gray},
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  numbers=left,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{blue},
+  commentstyle=\itshape\color{gray},
+  identifierstyle=\color{black},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  backgroundcolor=\color{light-gray},
+  belowcaptionskip=1\baselineskip,
+  numbers=left,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  keywordstyle=\bfseries\color{blue},
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{gray},
+}
+
+\lstset{escapechar=@}
+
+
+\begin{document}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\thispagestyle{empty}
+\materia{Ingeniería de Software I}
+\submateria{Primer Cuatrimestre de 2016}
+\titulo{Trabajo Práctico II}
+%\subtitulo{\emph{Si nos organizamos aprobamos todos...}}
+%\grupo{Los heladeros de Gauss}
+\integrante{Assenza, Franco}{921/12}{assenza.f@gmail.com}
+\integrante{Candioti, Alejandro}{784/13}{amcandio@gmail.com}
+\integrante{Colombo, Ricardo}{156/08}{ricardogcolombo@gmail.com}
+\integrante{Lang, Carolina}{906/12}{carolinalang93@gmail.com}
+\integrante{Levy Alfie, Jon\'as}{081/12}{jonaslevy5@gmail.com}
+%\fecha{\date{\currentdate}}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmo}
+
+\maketitle
+\newpage
+
+\thispagestyle{empty}
+\vfill
+
+\thispagestyle{empty}
+\vspace{3cm}
+\tableofcontents
+\newpage
+
+\newenvironment{myindentpar}[1]
+{\begin{list}{1}
+         {\setlength{\leftmargin}{#1}}
+         \item[]
+}
+{\end{list} }
+
+%\normalsize
+\newpage
+
+\input{OCL}
+
+\appendix
+%\include{apendice}
+
+\bibliographystyle{plain}
+%\bibliography{tp2}
+
+\end{document}
