@@ -1,0 +1,174 @@
+\section{Casos de Uso}
+ 
+En esta sección intentaremos terminar de definir de manera mas precisa y detallada las diferentes interacciones que puedan existir entre nuestro sistema y los diferentes actores. Para ello utilizaremos el modelado con un diagrama de casos de uso.
+
+ Para finalizar detallaremos los distintos casos de uso en los que ademas intentaremos ver cuales son los comportamientos alternativos que pueda tener nuestro sistema en las distintas sircunstancias.
+
+
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Consultando Proveedor \newline
+		  \textbf{Actor:} Administrador\newline
+		  \textbf{Pre:}  True\newline
+		  \textbf{Post:}El Administrador consulta el proveedor. 
+  }\\
+  \hline
+		1.El sistema le solicita que ingrese los filtros de busqueda  & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Administrador Agrega los datos del provedor que esta buscando&	\\
+		\hline
+		3.El Sistema encuentra el proveedor y muestra los datos & 3.1.El proveedor solicitado no se encuentra en el sistema \newline 3.2 Fin de C.U.  \\
+		\hline
+		4.El Administrador decide elimiar el proveedor. Extiende Caso de uso Eliminando Proveedor.& \\
+		\hline
+		5.El Administrador decide agregar el seguro de Caucion de proveedor. Extiende Caso de uso Agregando Seguro de Caucion.& \\
+		\hline
+		6.El Administrador decide consultar estado del seguro de Caucion de proveedor. Extiende Caso de uso Consultando estado de seguro de caucion.& \\
+		\hline
+		7.El Administrador decide consultar datos del proveedor. Extiende Caso de uso Consultando datos de proveedor.& \\
+		\hline
+		8.Fin de C.U.& \\
+		\hline
+  \hline
+\end{tabular}
+\newline\\
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Agregando Proveedor \newline
+		  \textbf{Actor:} Admin\newline
+		  \textbf{Pre:}  True\newline
+		  \textbf{Post:} El proveedor fue agregado al sistema
+  }\\
+  \hline
+		1.El sistema le solicita que ingrese los datos del proveedor & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Administrador Agrega los datos del provedor como son nombres, datos de contacto y datos relacionados al negocio &	\\
+		\hline
+		3.El Sistema valida los datos para ver si no se encuentra registrado & 3.1.El proveedor ya esta dado de alta \newline 3.2 Fin de C.U.  \\
+		\hline
+		4.El Sistema Pregunta si desea Agregar el seguro de caucion&\\
+		\hline
+		5.El Administrador Agrega Seguro de caucion, Extiende Caso de Uso Agregar seguro de Caucion. & 5.1 El Administrador decide agregarlo luego. Continua en paso 5 \\
+		\hline
+		6.Fin de C.U.& \\
+		\hline
+
+  \hline
+\end{tabular}
+\newline\\
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Eliminando Proveedor \newline
+		  \textbf{Actor:} Administrador\newline
+		  \textbf{Pre:true }  True\newline
+		  \textbf{Post:} El proveedor fue eliminado del sistema
+  }\\
+  \hline
+		1.El sistema  muetra las opciones para realizar con un proveedor & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Administrador selecciona eliminar&	\\
+		\hline
+		3.El Sistema lanza un mensaje consultando si desea eliminar el proveedor &  \\
+		\hline
+		4.El Administrador selecciona que SI desea eliminar el proveedor & 4.1.1 El Sistema nota que el proveedor sigue asignado a un proyecto en curso, muestra un mensaje por pantalla notificando este problema \newline 4.1.2 Fin Caso de Uso \newline 4.2.1 El usuario Selecciona que NO desea eliminar el proveedor \newline4.2.2 Fin de Caso de uso\\
+		\hline
+		5.El Sistema elimina el proveedor del sistema &  \\
+		\hline
+		6.Fin de C.U.& \\
+		\hline
+
+  \hline
+\end{tabular}
+\newline
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Actualizando datos de Proveedor \newline
+		  \textbf{Actor:} Administrador\newline
+		  \textbf{Pre:true }  True\newline
+		  \textbf{Post:} El Administrador actualiza los datos del Proveedor
+  }\\
+  \hline
+		1.El sistema  muetra las opciones para realizar con un proveedor & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Administrador selecciona Actualizar Datos Proveedor&	\\
+		\hline
+		3.El Sistema muestra todos los campos con los datos del proveedor para modificar y dos botones , uno para guardar y otro para cancelar&  \\
+		\hline
+		4.El Administrador Modifica los datos y toca salvar & 4.1.El Administrador toca cancelar \newline 4.2 Fin Caso de Uso \\
+		\hline
+		5.El Sistema guarda los cambios al proveedor &  \\
+		\hline
+		6.Fin de C.U.& \\
+		\hline
+  \hline
+\end{tabular}
+\newline
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Consultando estado de seguro de caucion \newline
+		  \textbf{Actor:} Administrador\newline
+		  \textbf{Pre:true }  True\newline
+		  \textbf{Post:} El Administrador consulta estado del seguro de caucion
+  }\\
+  \hline
+		1.El sistema  muetra las opciones para realizar con un proveedor & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Administrador selecciona la opcion consultar estado de seguro de caucion&	\\
+		\hline
+		3.El Sistema muestra el estado de seguro de caucion&  \\
+		\hline
+		6.Fin de C.U.& \\
+		\hline
+  \hline
+\end{tabular}
+
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Agregando seguro de caucion\newline
+		  \textbf{Actor:} Administrador\newline
+		  \textbf{Pre:true }  True\newline
+		  \textbf{Post:} El Administrador Agrega un nuevo seguro de caucion
+  }\\
+  \hline
+		1.El sistema  muetra las opciones para realizar con un proveedor & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Administrador selecciona la opcion agregar de seguro de caucion& \\
+		\hline
+		3.El Sistema muestra la opcion de ingreso de validez del seguro de caucion y el ingreso del archivo con el seguro de caucion&  \\
+		\hline
+		4.El Administrador ingresa la fecha de validez, agrega el archivo del escaneo del seguro de caucion y guarda los cambios&4.1 El administrador Apreta el boton cancelar \newline 4.2 Fin del Caso de uso \\
+		\hline
+		5.El Sistema verifica la fecha de validez y que no que no exista otro seguro de caucion & \\
+		\hline
+		6.El Sistema aprueba los datos ingresados y guarda los cambios &6.1 Los datos ingresados son incorrectos, o hay otro seguro de caucion en la misma fecha  \newline 6.2 vuelve al paso 4\\
+		\hline
+		6.Fin de C.U.& \\
+		\hline
+  \hline
+\end{tabular}
+
+\begin{tabular}{|p{8cm}|p{8cm}|}
+  \hline
+  \multicolumn{2}{|p{16cm}|}{
+	      \textbf{Caso de uso:} Contactando por nuevos trabajos\newline
+		  \textbf{Actor:} Cliente\newline
+		  \textbf{Pre:true }  True\newline
+		  \textbf{Post:} El Cliente deja el contacto para un nuevo trabajo en el sistema 
+          }\\
+  \hline
+		1.El sistema muestra las diferentes opciones para clientes & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+		\hline
+		2.El Cliente seleccion la opcion de contacto y completa los datos de contacto&2.1 El Cliente no ingresa datos de contacto\newline 2.2 Fin caso de uso	\\
+		\hline
+		6.El Sistema notifica nuevo proyecto. USA Caso de uso Notifica nuevo proyecto& \\
+		\hline
+		6.Fin de C.U.& \\
+		\hline
+  \hline
+\end{tabular}
