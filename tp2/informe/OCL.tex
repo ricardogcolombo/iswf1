@@ -50,6 +50,20 @@
 			
 			\notEmpty{self.Autor.SupervisaHistorico $\rightarrow$ filter(p | p == self.Proyecto)}
 	
+	\item \textbf{Los puntajes de los agentes se corresponden con los puntajes seg\'un proyectos:}
+			
+			Context: PM
+			
+			self.puntaje == self.Asignaciones\applyParam{filter}{Proyecto}
+				
+				\applyParam{select}{p\|p.FeedbackPM\apply{size} > 0}\applyParam{filter}{FeedbackPM}
+				
+				\applyParam{filter}{Calificacion}\apply{average}
+				
+			Context: Proveedor
+			
+			FALTA HACER ESTE
+	
 	\item \textbf{Los estados del proyecto pero para el otro lado?}
 	\item \textbf{Fechas de los reportes?}
 	\item \textbf{Solapamiento de PMs historico?}

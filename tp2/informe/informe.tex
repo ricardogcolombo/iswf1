@@ -47,7 +47,8 @@
 \newcommand{\may}[1]{{\sc #1}}
 \newcommand{\tab}{\hspace*{2em}}
 
-\newcommand{\apply}[1]{{$\rightarrow$ #1()}}
+\newcommand{\apply}[1]{\applyParam{#1}{}}
+\newcommand{\applyParam}[2]{{$\rightarrow$ #1(#2)}}
 \newcommand{\notEmpty}[1]{{#1\apply{count} > 0}}
 \newcommand{\laterThan}[1]{{self.Status > #1 $\Rightarrow$}}
 
