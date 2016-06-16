@@ -1,5 +1,5 @@
-\section{Modelo conceptual}
-\subsection{Condiciones OCL}
+\subsection{Modelo conceptual}
+\subsubsection{Condiciones OCL}
 \begin{itemize}
 		\item	\textbf{Momentos en los cuales se puede redefinir el PM o proveedor de un proyecto:}
 	
@@ -56,7 +56,7 @@
 			
 			self.puntaje == self.Asignaciones\applyParam{filter}{Proyecto}
 				
-				\applyParam{select}{p\|p.FeedbackPM\apply{size} > 0}\applyParam{filter}{FeedbackPM}
+				%\applyParam{select}{p\|p.FeedbackPM\apply{size} > 0}\applyParam{filter}{FeedbackPM}
 				
 				\applyParam{filter}{Calificacion}\apply{average}
 				
