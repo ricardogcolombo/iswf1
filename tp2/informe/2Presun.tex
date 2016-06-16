@@ -1,1 +1,67 @@
-\section{Presunciones}
+\section{Flujo Global del Sistema y Presunciones de Dominio}
+
+En esta sección contaremos resumidamente cómo entendemos que funciona 
+el flujo completo de la empresa a la hora de encarar un nuevo proyecto, 
+desde el inicio en que es solicitado, hasta que se pone en marcha y finalmente 
+se termina. A la vez en la siguiente descripción, mencionaremos algunos detalles 
+de alto nivel de las soluciones que planteamos para el sistema en cuestión. 
+
+\begin{enumerate}
+    \item Primero un Cliente contacta a la empresa por un nuevo trabajo, 
+    a través de un corto formulario en una interfaz web del sistema. 
+    
+    \item Al hacer esto, los Gerentes son notificados, quienes pueden ver 
+    estas solicitudes en el sistema. Si lo creen pertinente, crean entonces 
+    un nuevo proyecto en el sistema con los datos necesarios (potencialmente 
+    corrigiendo/clarificando datos ingresados por el Cliente). El Cliente 
+    es notificado cuando el proyecto es finalmente creado, a modo de confirmación. 
+    
+    \item Paralelamente, los Administradores son notificados. Ellos tendrán la 
+    tarea de garantizar si se trata de un Cliente nuevo o no, y conseguir los 
+    datos necesarios de ser ese caso. 
+    
+    \item Luego de creado el Proyecto, el Gerente puede consultar el estado 
+    de los PMs, filtrar/ordernar la lista a gusto, y en algún momento, 
+    asignar un PM al proyecto. 
+    
+    \item Cuando esto sucede, el PM es notificado y debe ponerse a trabajar. 
+    Su primer tarea es definir el primer alcance del Proyecto. Para esto, 
+    dialogará con el Cliente (por o fuera del sistema) hasta llegar a un acuerdo. 
+    El PM carga este alcance en el sistema y el Cliente es notificado de esto. 
+    El Cliente luego aprueba este alcance, o lo rechaza indicando por qué, y 
+    se repite el ciclo hasta llegar a un alcance aprobado. 
+    
+    \item Con el primer alcance definido, el PM se pone a buscar Proveedores 
+    acordes en la base de datos, a envía a quienes crea pertinentes una solicitud 
+    de propuesta. Estos proveedores son notificados por correo. Al momento de filtrar 
+    en el sistema, el mismo informará si los Proveedores tienen seguro de caución apto 
+    para la fecha estimada de finalización del proyecto. 
+    
+    \item Los proveedores notificados podrán llenar sus propuestas mediante un 
+    formulario en una interfaz web con un link privado autogenerado para ellos. 
+    
+    \item Eventualmente, con las propuestas recibidas, el PM seleccionará la más acorde 
+    y el dicho Proveedor será notificado de que su propuesta fue la aceptada. 
+    El PM será alertado por el sistema si pasa demasiado tiempo sin llegar a una 
+    decisión de propuesta, así como también será notificado por nuevas propuestas 
+    que lleguen. También podrá añadir propuestas manualmente por los Proveedores en 
+    caso de eventualidades. 
+    
+    \item Con la propuesta seleccionada, el PM pasará a armar los contratos, 
+    tanto para el Proveedor como el Cliente. Aquí será importante verificar que 
+    el seguro de caución del Proveedor no vencerá hasta finalizado el contrato con 
+    el mismo. Una vez armados los contratos, se envían a los Gerentes para revisión. 
+    
+    \item Los Gerentes son notificados de los contratos, y podrán aprobarlos o 
+    rechazarlos explicando por qué (en cuyo caso, el PM los corrige y vuelve a mandarlos). 
+    Finalmente, en algún momento ambos contratos son aprobados, el PM es notificado, 
+    y automáticamente pueden ser enviados al Cliente y Proveedor. 
+    
+    \item Al Cliente y Proveedor les llega su contrato, y pueden firmarlos y enviarlo 
+    mediante un link especial ellos mismos. También pueden enviarlo por mail de ser 
+    necesario, o pueden firmarlo en papel y entregarselo al PM en mano. 
+    Tanto el PM como el Cliente y el Proveedor son alertados si pasa demasiado tiempo 
+    sin que los contratos hayan sido subidos firmados. 
+    
+    \item 
+\end{enumerate}
