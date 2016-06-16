@@ -1,5 +1,5 @@
-\section{Modelo conceptual}
-\subsection{Condiciones OCL}
+\subsection{Modelo conceptual}
+\subsubsection{Condiciones OCL}
 \begin{itemize}
 		\item	\textbf{Momentos en los cuales se puede redefinir el PM o proveedor de un proyecto:}
 	
@@ -32,18 +32,15 @@
 														& \notEmpty{self.FeedbackPM}			\\
 			\end{tabular}
 			
-	\item \textbf{Seguro de caución al día:}
+	\item \textbf{Seguro de caución al día para proyectos actuales:}
 	
-			Context: Proyecto
+			Context: Alcance Proyecto
 			
-			\notEmpty{self.ProveedorActual} and self.Status $\leq$ ObraEnCurso $\Rightarrow$
+			(self.Actual and self.Proyecto.Status $\in$ [BuscandoProveedor, obraEnCurso]	\\
+			and \notEmpty{self.PropuestaProveedor.contratoProveedor}) 		\\
+			$\Rightarrow$ (\notEmpty{self.Proveedor.Seguro} and self.Proveedor.Seguro.Vencimiento	\\
+			> self.PropuestaProveedor.contratoProveedor.FechaFin)	\\
 			
-			\begin{tabular}{ll}
-				\hfill
-				& \notEmpty{self.ProveedorActual.Seguro} and	\\
-				& self.ProveedorActual.Seguro.Vencimiento $\geq$ ContratoProveedor(self, self.ProveedorActual).FechaFin	\\
-			\end{tabular}
-				
 	\item \textbf{Los autores de reportes son PM del proyecto:}
 		
 			Context: Reporte de estado 
@@ -54,15 +51,37 @@
 			
 			Context: PM
 			
-			self.puntaje == self.Asignaciones\applyParam{filter}{Proyecto}
-				
-				\applyParam{select}{p\|p.FeedbackPM\apply{size} > 0}\applyParam{filter}{FeedbackPM}
-				
-				\applyParam{filter}{Calificacion}\apply{average}
-				
+			\begin{tabular}{ll}
+			self.puntaje ==	& self.Asignaciones\applyParam{filter}{Proyecto} \applyParam{select}{p$\|$\notEmpty{p.FeedbackPM}}	\\
+							& \applyParam{filter}{FeedbackPM}\applyParam{filter}{Calificacion}\apply{average}	\\
+			\end{tabular}
+			
 			Context: Proveedor
 			
-			FALTA HACER ESTE
+			\begin{tabular}{ll}
+			self.puntaje ==	& self.Asignaciones\applyParam{select}{p$\|$\notEmpty{p.FeedbackProv}}\applyParam{filter}{FeedbackProv} \\
+							& \applyParam{filter}{Calificacion}\apply{average}	\\
+			\end{tabular}
+	
+	\item \textbf{Las asignaciones no se pisan en tiempo}
+	
+			Context: Proyecto
+			
+			self.Alcances\applyParam{filter}{AsignacionProveedor}\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
+	
+	\item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
+	
+			Context: Proyecto
+			
+			self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			
+			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			
+	\item \textbf{Ciclo Proveedor - Asignaci\'on - Propuesta}
+	
+			Context: Asignación Proveedor
+			
+			self.Proveedor == self.PropuestaProveedor.Proveedor
 	
 	\item \textbf{Los estados del proyecto pero para el otro lado?}
 	\item \textbf{Fechas de los reportes?}
