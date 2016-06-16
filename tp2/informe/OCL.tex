@@ -83,11 +83,25 @@
 			
 			self.Proveedor == self.PropuestaProveedor.Proveedor
 	
-	\item \textbf{Los estados del proyecto pero para el otro lado?}
-	\item \textbf{Fechas de los reportes?}
-	\item \textbf{Solapamiento de PMs historico?}
-	\item \textbf{Solapamiento de proveedores historico?}
-	\item \textbf{Porcentaje de las comisiones}
-	\item \textbf{Fechas de fin luego de fechas de inicio}
+	%\item \textbf{Los estados del proyecto pero para el otro lado?}
+	%\item \textbf{Fechas de los reportes?}
+	%\item \textbf{Solapamiento de PMs historico}
+	%\item \textbf{Solapamiento de proveedores historico?}
+	%\item \textbf{Porcentaje de las comisiones}
+	%\item \textbf{Fechas de fin luego de fechas de inicio}
 	
+        \item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
+    
+            Context: Proyecto
+            
+            self.Alcances\applyParam{select}{A$\|$a.Actual}\apply{size} $\leq$ 1
+            
+            self.HistoricoPM\applyParam{select}{A$\|$a.Actual}\apply{size} $\leq$ 1
+    
+    \item \textbf{Ciclo Proveedor - Propuesta - Asignacion}
+    
+            Context: Asignación Proveedor
+            
+            self.Proveedor == self.PropuestaProveedor.Proveedor
+        
 \end{itemize}
