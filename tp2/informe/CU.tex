@@ -4,11 +4,11 @@ En esta sección intentaremos terminar de definir de manera mas precisa y detall
 
 Para finalizar detallaremos los distintos casos de uso en los que ademas intentaremos ver cuales son los comportamientos alternativos que pueda tener nuestro sistema en las distintas sircunstancias.
 
-
+% ADMIN
 \begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
     \hline
     \multicolumn{2}{|p{16cm}|}{
-        \textbf{Caso de uso:} Consultando Proveedor \newline
+        \textbf{Caso de uso:} Consultando Proveedores \newline
         \textbf{Actor:} Administrador\newline
         \textbf{Pre:}  True\newline
         \textbf{Post:}El Administrador consulta el proveedor.
@@ -58,9 +58,9 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
 \begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
     \hline
     \multicolumn{2}{|p{16cm}|}{
-        \textbf{Caso de uso:} Eliminando Proveedor \newline
+        \textbf{Caso de uso:} Borrando Proveedor \newline
         \textbf{Actor:} Administrador\newline
-        \textbf{Pre:true }  True\newline
+        \textbf{Pre:}  Autenticado como proveedor\newline
         \textbf{Post:} El proveedor fue eliminado del sistema
     }\\
     \hline
@@ -82,7 +82,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Actualizando datos de Proveedor \newline
         \textbf{Actor:} Administrador\newline
-        \textbf{Pre:true }  True\newline
+        \textbf{Pre:true }  Autenticado como proveedor\newline
         \textbf{Post:} El Administrador actualiza los datos del Proveedor
     }\\
     \hline
@@ -124,7 +124,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Agregando seguro de caucion\newline
         \textbf{Actor:} Administrador\newline
-        \textbf{Pre:true }  True\newline
+        \textbf{Pre:true }  Autenticado como proveedor\newline
         \textbf{Post:} El Administrador Agrega un nuevo seguro de caucion
     }\\
     \hline
@@ -143,6 +143,34 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     7.Fin de C.U.& \\
     \hline
 \end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:} Solicitando datos/seguro de caucion de proveedor\newline
+        \textbf{Actor:} Administrador\newline
+        \textbf{Pre:true }  Autenticado como proveedor\newline
+        \textbf{Post:} El Administrador Agrega un nuevo seguro de caucion
+    }\\
+    \hline
+    1.El sistema  muetra las opciones para realizar con un proveedor & 1.1.Sistema no  disponible por el momento.\newline 1.2Fin de C.U.\\
+    \hline
+    2.El Administrador selecciona la opcion agregar de seguro de caucion& \\
+    \hline
+    3.El Sistema muestra la opcion de ingreso de validez del seguro de caucion y el ingreso del archivo con el seguro de caucion&  \\
+    \hline
+    4.El Administrador ingresa la fecha de validez, agrega el archivo del escaneo del seguro de caucion y guarda los cambios&4.1 El administrador Apreta el boton cancelar \newline 4.2 Fin del Caso de uso \\
+    \hline
+    5.El Sistema verifica la fecha de validez y que no que no exista otro seguro de caucion & \\
+    \hline
+    6.El Sistema aprueba los datos ingresados y guarda los cambios &6.1 Los datos ingresados son incorrectos, o hay otro seguro de caucion en la misma fecha  \newline 6.2 vuelve al paso 4\\
+    \hline
+    7.Fin de C.U.& \\
+    \hline
+\end{longtable}
+
+
+% cliente
 
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
@@ -186,7 +214,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
-        \textbf{Caso de uso:} Completa encuesta\newline
+        \textbf{Caso de uso:} Completando Feedback de PM\newline
         \textbf{Actor:} Cliente\newline
         \textbf{Pre: }Recibe notificacion para completar encuesta\newline
         \textbf{Post: }El Cliente Completo la encuesta
@@ -203,7 +231,154 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     5.Fin del C.U&\\
     \hline
 \end{longtable}
+% PM
 
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando Proyectos\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM esta logueado en el sistema\newline
+        \textbf{Post:} El PM ve todos los proyectos registrados en el sistema
+    }\\
+    \hline
+    1.El PM ingresa al sistema& \\
+    \hline
+    2.El sistema muestra todas las opciones de interaccion disponible&  \\
+    \hline
+    3.El PM selecciona buscar proyectos& \\
+    \hline
+    4.El sistema muestra todos los proyectos disponibles&4.1 El PM filtra la lista de proyectos por id o por cliente\\
+    \hline
+    5.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando alcance de Proyectos\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM busco un proyecto\newline
+        \textbf{Post:} El PM Puede ve los alcances de un proyecto
+    }\\
+    \hline
+    1.El sistema muestra las opciones del proyecto& \\
+    \hline
+    2.El PM selecciona ver los alcances del proyecto&  \\
+    \hline
+    3.El sistema muestra los alcances del proyectos& \\
+    \hline
+    4.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando TOP de proveedores\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM se loguea en el sistema\newline
+        \textbf{Post:} El PM obtiene una lista de proveedores ordenados segun los filtros seleccionados
+    }\\
+    \hline
+    1.El sistema muestra los filtros de busqueda& \\
+    \hline
+    2.El PM completa los filtros de busqueda&  \\
+    \hline
+    3.El sistema muestra los resultados basado en los filtros de busqueda ordenados por algun criterio seleccionado& \\
+    \hline
+    4.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando propuestas de los proveedores\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM busco un proyecto\newline
+        \textbf{Post:} El PM obtiene una lista de las propuestas presentadas por los proveedores
+    }\\
+    \hline
+    1.El sistema muestra las distintas opciones en la pantalla de detalle de proyecto& \\
+    \hline
+    2.El PM selecciona la opcion de ver propuestas presentadas&\\
+    \hline
+    3.El sistema muestra las propuestas presentadas por los distintos proveedores & \\
+    \hline
+    4.El PM selecciona una propuesta  &\\
+    \hline
+    5.El sistema muestra el detalle de la propeusta seleccionada&\\
+    \hline
+    6.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Marcando una propuesta como seleccionada\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM busco las propuestas asociadas a un proyecto\newline
+        \textbf{Post:} El PM selecciona una de las propeustas para el proyecto seleccionado
+    }\\
+    \hline
+    1.El sistema muestra las propeustas para el proyecto seleccionado& \\
+    \hline
+    2.El PM selecciona una propuesta para el proyecto y guarda los cambios&\\
+    \hline
+    3.El sistema envia una notificacion al proeedor.USA Notificando seleccion de propuesta a proveedor& \\
+    \hline
+    4.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+\\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Generando reporte de proyecto\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM busco un proyecto\newline
+        \textbf{Post:} El PM agrega un detalle de los avances en el proyecto
+    }\\
+    \hline
+    1.El sistema muestra las distintas opciones en la pantalla de detalle de proyecto& \\
+    \hline
+    2.El PM selecciona la opcion de agregar reporte &\\
+    \hline
+    3.El sistema muestra las un formulario para completar& \\
+    \hline
+    4.El PM completa un formulario con los avances del proyecto y guarda el reporte&\\
+    \hline
+    5.El sistema guarda el formulario&\\
+    \hline
+    6.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+
+\\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Enviando solicitud de propeusta a proveedores\newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }El PM busco el TOP de proveedores\newline
+        \textbf{Post:} El PM envia la soliicitud de propuestas a los mejores proveedores
+    }\\
+    \hline
+    1.El sistema muestra la lista de TOP de proveedores & \\
+    \hline
+    2.El PM selecciona varios proveedores y selecciona la opcion de enviar solicitud de propuesta& \\
+    \hline
+    3.El sistema envia la notificacion.USA Notificando solicitud de porpuestas a proveedores& \\
+    \hline
+    4.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+% GERENTE
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
