@@ -69,6 +69,20 @@
 			
 			self.Alcances\applyParam{filter}{AsignacionProveedor}\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
 	
+	\item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
+	
+			Context: Proyecto
+			
+			self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			
+			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			
+	\item \textbf{Ciclo Proveedor - Asignaci\'on - Propuesta}
+	
+			Context: Asignación Proveedor
+			
+			self.Proveedor == self.PropuestaProveedor.Proveedor
+	
 	\item \textbf{Los estados del proyecto pero para el otro lado?}
 	\item \textbf{Fechas de los reportes?}
 	\item \textbf{Solapamiento de PMs historico?}
