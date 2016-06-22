@@ -23,59 +23,56 @@
 			Context: Proyecto
 			
 			\begin{tabular}{ll}
-				\laterThan{EligiendoPM}				& \notEmpty{self.supervisaHistorico} and						\\
-													& ((self.redefiniendoPM) xor (\notEmpty{self.supervisaActual}))	\\
+				\laterThan{EligiendoPM}				& \notEmpty{self.historicoPM} and	\\
+													& ((self.redefiniendoPM) xor \\
+													& (self.historicoPM\applyParam{exists}{pm$|$pm.Actual}))	\\
 				
-				and \laterThan{DefiniendoAlcance}	& \notEmpty{self.alcance} \\
+				and \laterThan{DefiniendoAlcance}	& \notEmpty{self.Alcances} \\
 				
-				and \laterThan{BuscandoProveedor}	& \notEmpty{self.proveedorHistorico} and	\\
-													& (self.redefiniendoProveedor xor			\\
-													& (\notEmpty{self.proveedorActual}))		\\
+				and \laterThan{BuscandoProveedor}	& self.Alcances\applyParam{select}{a$|$a.Actual}.Seleccionada\notEmpty{}	\\
 				
 				and \laterThan{FirmandoContratos}	& \notEmpty{contratoCliente(self, self.Solicitante)} and	\\
 													& (self.redefiniendoProveedor xor							\\
-													& \notEmpty{contratoProveedor(self, self.ProveedorActual)})	\\
+													& self.Alcances\applyParam{select}{a$|$a.Actual}.ContratoProveedor	\\
+													& \notEmpty{})	\\
 				
-				and \laterThan{ConsiguiendoFeedback}	& \notEmpty{self.FeedbackProveedor} and	\\
-														& \notEmpty{self.FeedbackPM}			\\
+				and \laterThan{ConsiguiendoFeedback}	& self.HistoricoPM\applyParam{forAll}{a$|$
+				a.\notEmpty{Feedback}} and	\\
+														& self.Alcances\applyParam{collect}{AsignacionProveedor} \\
+														& \applyParam{forAll}{a$|$a.Feedback\notEmpty{}} \\
 			\end{tabular}
 			
 	\item \textbf{Seguro de caución al día para proyectos actuales:}
 	
 			Context: Alcance Proyecto
 			
-			(self.Actual and self.Proyecto.Status $\in$ [BuscandoProveedor, obraEnCurso]	\\
-			and \notEmpty{self.PropuestaProveedor.contratoProveedor}) 		\\
-			$\Rightarrow$ (\notEmpty{self.Proveedor.Seguro} and self.Proveedor.Seguro.Vencimiento	\\
-			> self.PropuestaProveedor.contratoProveedor.FechaFin)	\\
+			self.Actual $\Rightarrow$ (\notEmpty{self.Seleccionada.Proveedor.Seguro} \\
+			and self.Seleccionada.Proveedor.Seguro.Vencimiento	\\
+			$\geq$ self.ContratoProveedor.FechaFin)	\\
 			
-	\item \textbf{Los autores de reportes son PM del proyecto:}
-		
-			Context: Reporte de estado 
+			%(self.Actual and self.Proyecto.Status $\in$ [BuscandoProveedor, obraEnCurso]	\\
+			%and \notEmpty{self.PropuestaProveedor.contratoProveedor}) 		\\
+			%$\Rightarrow$ (\notEmpty{self.Proveedor.Seguro} and self.Proveedor.Seguro.Vencimiento	\\
+			%> self.PropuestaProveedor.contratoProveedor.FechaFin)	\\
 			
-			\notEmpty{self.Autor.SupervisaHistorico $\rightarrow$ filter(p | p == self.Proyecto)}
-	
 	\item \textbf{Los puntajes de los agentes se corresponden con los puntajes seg\'un proyectos:}
 			
 			Context: PM
 			
-			\begin{tabular}{ll}
-			self.puntaje ==	& self.Asignaciones\applyParam{filter}{Proyecto} \applyParam{select}{p$\|$\notEmpty{p.FeedbackPM}}	\\
-							& \applyParam{filter}{FeedbackPM}\applyParam{filter}{Calificacion}\apply{average}	\\
-			\end{tabular}
+			self.puntaje ==	self.Asignaciones\applyParam{collect}{FeedbackPM}\applyParam{collect}{Calificacion}\apply{average}
+			\footnote{Consideramos que average de vacío da 0.}
 			
 			Context: Proveedor
 			
-			\begin{tabular}{ll}
-			self.puntaje ==	& self.Asignaciones\applyParam{select}{p$\|$\notEmpty{p.FeedbackProv}}\applyParam{filter}{FeedbackProv} \\
-							& \applyParam{filter}{Calificacion}\apply{average}	\\
-			\end{tabular}
+			self.puntaje ==	self.Asignaciones\applyParam{collect}{FeedbackProv}\applyParam{collect}{Calificacion}\apply{average}
+			\footnote{Idem nota anterior}
+			
 	
 	\item \textbf{Las asignaciones no se pisan en tiempo}
 	
 			Context: Proyecto
 			
-			self.Alcances\applyParam{filter}{AsignacionProveedor}\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
+			self.Alcances\applyParam{collect}{AsignacionProveedor}\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
 	
 	\item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
 	
@@ -85,11 +82,13 @@
 			
 			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
 			
+			self.Status > ObraEnCurso $\Rightarrow$ self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} = 0
+			
 	\item \textbf{Ciclo Proveedor - Asignaci\'on - Propuesta}
 	
 			Context: Asignación Proveedor
 			
-			self.Proveedor == self.PropuestaProveedor.Proveedor
+			self.Proveedor == self.Seleccionada.Proveedor
 	
 	%\item \textbf{Los estados del proyecto pero para el otro lado?}
 	%\item \textbf{Fechas de los reportes?}
@@ -98,18 +97,4 @@
 	%\item \textbf{Porcentaje de las comisiones}
 	%\item \textbf{Fechas de fin luego de fechas de inicio}
 	
-        \item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
-    
-            Context: Proyecto
-            
-            self.Alcances\applyParam{select}{A$\|$a.Actual}\apply{size} $\leq$ 1
-            
-            self.HistoricoPM\applyParam{select}{A$\|$a.Actual}\apply{size} $\leq$ 1
-    
-    \item \textbf{Ciclo Proveedor - Propuesta - Asignacion}
-    
-            Context: Asignación Proveedor
-            
-            self.Proveedor == self.PropuestaProveedor.Proveedor
-        
 \end{itemize}
