@@ -12,14 +12,22 @@ utilizando distintos diagramas y técnicas, según el caso.
 Modelamos aquí el proceso de búsqueda del proveedor para el proyecto. 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/act-busqprov.png}
+\label{act-busqprov}
 \end{figure}
 
 El proceso de ``Selección de proveedor'' en el diagrama de detalla mediante 
-los siguientes FSM. 
+los siguientes FSM. Este proceso tiene como salida si se pudo seleccionar de 
+manera exitosa o no un proveedor adecuado para el alcance. En caso de fallar, ya sea 
+por falta de respuestas o porque no hay proveedores aptos, se redefine la búsqueda y 
+se vuelve a empezar. 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/fsm-selprov.png}
+\label{fsm-selprov}
 \end{figure}
+
+El proceso de ``Definir Alcance" se detalla en el siguiente FSM. 
+%%% HACERLO 
 
 		\subsubsection{Firma de contratos}
 Una vez seleccionado el proveedor para cumplir con el alcance, se inicia 
@@ -27,27 +35,10 @@ el proceso de firma de contratos. El mismo se detalla en los siguientes FSM.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/fsm-firmcont1.png}
+\label{fsm-firmcont1}
 \end{figure}
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/fsm-firmcont2.png}
+\label{fsm-firmcont2}
 \end{figure}
-
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth]{diag/viejos/f1.png}
-%\end{figure}
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth]{diag/viejos/f2.png}
-%\end{figure}
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth]{diag/viejos/f3.png}
-%\end{figure}
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth]{diag/viejos/f4.png}
-%\end{figure}
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth]{diag/viejos/f5.png}
-%\end{figure}
-%\begin{figure}[H]
-%\includegraphics[width=\linewidth]{diag/viejos/f6.png}
-%\end{figure}
