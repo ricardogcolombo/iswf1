@@ -1,30 +1,53 @@
 \section{Vistas}
 
+\input{CU}
 \input{OCL}
 
-\input{CU}
+	\subsection{Diagramas de procesos}
 
-\subsection{Diagramas de Actividad}
+En esta sección detallamos distintos sub-procesos del flujo general de la empresa, 
+utilizando distintos diagramas y técnicas, según el caso. 
+
+		\subsubsection{Búsqueda de proveedor}
+Modelamos aquí el proceso de búsqueda del proveedor para el proyecto. 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/actividad.pdf}
+\includegraphics[width=\linewidth]{diag/nuevos/act-busqprov.png}
 \end{figure}
 
-\subsection{FSM}
+El proceso de ``Selección de proveedor'' en el diagrama de detalla mediante 
+los siguientes FSM. 
+
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/f1.png}
+\includegraphics[width=\linewidth]{diag/nuevos/fsm-selprov.png}
 \end{figure}
+
+		\subsubsection{Firma de contratos}
+Una vez seleccionado el proveedor para cumplir con el alcance, se inicia 
+el proceso de firma de contratos. El mismo se detalla en los siguientes FSM. 
+
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/f2.png}
+\includegraphics[width=\linewidth]{diag/nuevos/fsm-firmcont1.png}
 \end{figure}
+
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/f3.png}
+\includegraphics[width=\linewidth]{diag/nuevos/fsm-firmcont2.png}
 \end{figure}
-\begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/f4.png}
-\end{figure}
-\begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/f5.png}
-\end{figure}
-\begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/viejos/f6.png}
-\end{figure}
+
+%\begin{figure}[H]
+%\includegraphics[width=\linewidth]{diag/viejos/f1.png}
+%\end{figure}
+%\begin{figure}[H]
+%\includegraphics[width=\linewidth]{diag/viejos/f2.png}
+%\end{figure}
+%\begin{figure}[H]
+%\includegraphics[width=\linewidth]{diag/viejos/f3.png}
+%\end{figure}
+%\begin{figure}[H]
+%\includegraphics[width=\linewidth]{diag/viejos/f4.png}
+%\end{figure}
+%\begin{figure}[H]
+%\includegraphics[width=\linewidth]{diag/viejos/f5.png}
+%\end{figure}
+%\begin{figure}[H]
+%\includegraphics[width=\linewidth]{diag/viejos/f6.png}
+%\end{figure}
