@@ -17,14 +17,17 @@ del mismo diagrama serán detalladas luego con otros diagramas.
 \label{fsm-proj}
 \end{figure}
 
-		\subsubsection{Búsqueda de proveedor}
-Modelamos aquí el proceso de búsqueda del proveedor para el proyecto. 
+A continuación, mostramos un diagrama de actividad que ejemplifica un posible 
+escenario de acciones desde que se carga un pre-proyecto hasta que se elige un 
+proveedor. 
+
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/act-busqprov.png}
 \label{act-busqprov}
 \end{figure}
 
-El proceso de ``Selección de proveedor'' en el diagrama de detalla mediante 
+		\subsubsection{Búsqueda de proveedor}
+El proceso de ``Selección de proveedor'' del anterior diagrama se detalla mediante 
 los siguientes FSM. Este proceso tiene como salida si se pudo seleccionar de 
 manera exitosa o no un proveedor adecuado para el alcance. En caso de fallar, ya sea 
 por falta de respuestas o porque no hay proveedores aptos, se redefine la búsqueda y 
@@ -43,11 +46,11 @@ Una vez seleccionado el proveedor para cumplir con el alcance, se inicia
 el proceso de firma de contratos. El mismo se detalla en los siguientes FSM. 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/nuevos/fsm-firmcont1.png}
+\includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-firmcont1.png}
 \label{fsm-firmcont1}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/nuevos/fsm-firmcont2.png}
+\includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-firmcont2.png}
 \label{fsm-firmcont2}
 \end{figure}
