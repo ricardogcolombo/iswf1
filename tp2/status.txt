@@ -1,0 +1,20 @@
+1 - pre-proyecto ingresado (por pm, gerente o cliente)
+2 - proyecto creado a partir del pre-proyecto (por gerente)
+2 - pm definido (por gerente)
+3 - alcance cargado (por pm+cliente, de qué maneras?)
+4 - proveedor elegido (por pm+proveedores, ya está hecho)
+5 - contratos firmados (por pm+gerente+proveedor+cliente, ya está hecho)
+6 - obra en curso
+7 - feedback completado (cliente+pm)
+8 - proyecto terminado
+
+########################################################################
+
+1 proyecto -> 1 cliente
+1 proyecto -> muchos* PMs históricos (no se solapan en el tiempo)
+1 proyecto -> muchos* alcances históricos (sólo 1 actual)
+1 alcance -> muchas* búsquedas de proveedores
+1 alcance -> 1 proveedor seleccionado
+1 alcance -> 1 contrato con el proveedor seleccionado y 1 contrato con el cliente 
+
+*(eventualmente)
