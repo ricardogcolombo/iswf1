@@ -212,11 +212,11 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Completando Feedback de PM\newline
         \textbf{Actor:} Cliente\newline
-        \textbf{Pre: }True\newline
+        \textbf{Pre: }El Cliente Accede al sistema con link Provisto en alta de proyecto\newline
         \textbf{Post: }El Cliente Completo la encuesta
     }\\
     \hline
-    1.El Usuario accede al link que recibe en el Mail y le abre una pagina web con la encuesta a completar & 1.1.El Usuario desestima el mail .\newline 1.2Fin de C.U.\\
+    1.El Usuario accede al link que recibio en el Mail y le abre una pagina web con la encuesta a completar & 1.1.El Usuario desestima el mail .\newline 1.2Fin de C.U.\\
     \hline
     2.El Usuario Completa las preguntas sobre rendimiento del PM de la encuesta y agrega recomendaciones en caso de tenerlas&    \\
     \hline
@@ -229,6 +229,71 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     6.Fin del C.U&\\
     \hline
 \end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:} Reportando Problemas\newline
+        \textbf{Actor:} Cliente\newline
+        \textbf{Pre: }El Cliente Accede al sistema con link Provisto en alta de proyecto\newline
+        \textbf{Post: }El Cliente notifico de un problema
+    }\\
+    \hline
+    1.El Usuario entra a la pagina web con el link provisto y selecciona la opcion reportar problema.&\\
+    \hline
+    2.El Sistema muestra un formulario con espacio para escribir un detalle del problema&    \\
+    \hline
+    3.El Cliente Completa dicho formulario y selecciona la opcion Enviar& \\
+    \hline
+    4.El Sistema Registra el problema. Extiende Notificando Problemas en Proyectos a gerentes y PM&\\
+    \hline
+    5.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:} Enviando Contrato firmado \newline
+        \textbf{Actor:} Cliente\newline
+        \textbf{Pre: }El Cliente Accede al sistema con link Provisto en alta de proyecto\newline
+        \textbf{Post: }El Envio el contrato firmado
+    }\\
+    \hline
+    1.El Usuario entra a la pagina web con el link provisto y selecciona la opcion enviar contrato.&\\
+    \hline
+    2.El Sistema pide que seleccion el archivo pdf firmado desde su computadora&    \\
+    \hline
+    3.El Cliente Selecciona el archivo.& \\
+    \hline
+    4.El Sistema Guarda el contrato firmado. Extiende Notificando contrato de Cliente enviado a PM&\\
+    \hline
+    5.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:} Respondiendo solicitud de Datos \newline
+        \textbf{Actor:} Cliente\newline
+        \textbf{Pre: }El Cliente Accede al sistema con link Provisto en mail de solicitud\newline
+        \textbf{Post: }El Envio el contrato firmado
+    }\\
+    \hline
+    1.El Usuario entra a la pagina web con el link provisto.&\\
+    \hline
+    2.El Sistema Presenta un formulario con datos obligatorios como telefono, ubicacion, nombre, datos del negocio, servicios y productos que ofrece &    \\
+    \hline
+    3.El Cliente Completa los datos y presiona el boton guardar. &3.1 El Cliente no completa los datos.\newline 3.2 El Sistema lo marca como incompleto.\newline 3.3 Fin del C.U.\\
+    \hline
+    4.El Sistema Guarda los datos. Extiende Notificando datos completados al Admin&\\
+    \hline
+    5.Fin del C.U&\\
+    \hline
+\end{longtable}
+
+
 % PM
 
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
