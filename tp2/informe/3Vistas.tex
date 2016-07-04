@@ -13,7 +13,8 @@ que pasa un proyecto, desde su creación hasta su finalización. Varias transici
 del mismo diagrama serán detalladas luego con otros diagramas. 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/nuevos/fsm-proj.png}
+\centering
+\includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-proj.png}
 \label{fsm-proj}
 \end{figure}
 
@@ -22,38 +23,57 @@ escenario de acciones desde que se carga un pre-proyecto hasta que se elige un
 proveedor. 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/nuevos/act-busqprov.png}
-\label{act-busqprov}
+\centering
+\includegraphics[width=0.8\linewidth]{diag/nuevos/act-busqprov.png}
+\label{fig:busqprov}
+\caption{Diagrama de actividad: Búsqueda de proveedor}
 \end{figure}
 
+Las acciones destacadas se detallan luego usando FSM. 
+
+
+	\subsubsection{Definir Alcance (PM y Cliente)}
+El proceso de \textit{Definir Alcance} mencionado en el diagrama anterior 
+se detalla mediante el siguiente FSM. 
+
+Luego del mismo, queda definido el alcance del proyecto con el cliente. 
+Potencialmente, el PM podrá luego definir nuevos alcances, para buscar un nuevo 
+proveedor en caso de necesitar cambiarlo, y que entre todos estos alcances 
+se logre cumplir el alcance original definido para el cliente. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-alcance.png}
+\label{fsm-alcance}
+\end{figure}
+
+
 		\subsubsection{Búsqueda de proveedor}
-El proceso de \textit{Selección de proveedor} del anterior diagrama se detalla mediante 
+El proceso de \textit{Selección de proveedor} de diagrama \ref{fig:busqprov} se detalla mediante 
 los siguientes FSM. Este proceso tiene como salida si se pudo seleccionar de 
 manera exitosa o no un proveedor adecuado para el alcance. En caso de fallar, ya sea 
 por falta de respuestas o porque no hay proveedores aptos, se redefine la búsqueda y 
 se vuelve a empezar. 
 
 \begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/nuevos/fsm-selprov.png}
+\centering
+\includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-selprov.png}
 \label{fsm-selprov}
 \end{figure}
 
-El proceso de \textit{Definir Alcance} se detalla mediante el siguiente FSM. 
-\begin{figure}[H]
-\includegraphics[width=\linewidth]{diag/nuevos/fsm-alcance.png}
-\label{fsm-alcance}
-\end{figure}
 
 		\subsubsection{Firma de contratos}
 Una vez seleccionado el proveedor para cumplir con el alcance, se inicia 
 el proceso de firma de contratos. El mismo se detalla en los siguientes FSM. 
 
 \begin{figure}[H]
+\centering
 \includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-firmcont1.png}
 \label{fsm-firmcont1}
 \end{figure}
 
 \begin{figure}[H]
+\centering
 \includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-firmcont2.png}
 \label{fsm-firmcont2}
 \end{figure}
