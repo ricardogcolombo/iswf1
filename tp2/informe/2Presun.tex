@@ -1,4 +1,4 @@
-\section{Flujo Global del Sistema y Presunciones de Dominio}
+\section{Flujo global de la empresa y presunciones de dominio}
 
 En esta sección contaremos resumidamente cómo entendemos que funciona 
 el flujo completo de la empresa a la hora de encarar un nuevo proyecto, 
@@ -9,6 +9,8 @@ de alto nivel de las soluciones que planteamos para el sistema en cuestión.
 \begin{enumerate}
     \item Primero un Cliente contacta a la empresa por un nuevo trabajo, 
     a través de un corto formulario en una interfaz web del sistema. 
+    También podría ser que un PM o un Gerente cargan un pre-proyecto en nombre 
+    de un Cliente, por alguna eventualidad. 
     
     \item Al hacer esto, los Gerentes son notificados, quienes pueden ver 
     estas solicitudes en el sistema. Si lo creen pertinente, crean entonces 
@@ -35,7 +37,9 @@ de alto nivel de las soluciones que planteamos para el sistema en cuestión.
     acordes en la base de datos, a envía a quienes crea pertinentes una solicitud 
     de propuesta. Estos proveedores son notificados por correo. Al momento de filtrar 
     en el sistema, el mismo informará si los Proveedores tienen seguro de caución apto 
-    para la fecha estimada de finalización del proyecto. 
+    para la fecha estimada de finalización del proyecto (notar que la fecha real de 
+    finalizacion se determinaría durante la firma de contratos, la fecha estimada 
+    sirve como aproximación para buscar un proveedor).
     
     \item Los proveedores notificados podrán llenar sus propuestas mediante un 
     formulario en una interfaz web con un link privado autogenerado para ellos. 
@@ -82,5 +86,12 @@ de alto nivel de las soluciones que planteamos para el sistema en cuestión.
     esto, se definirá un nuevo alcance y se empezará nuevamente todo el ciclo 
     de búsqueda de Proveedor, firma de contratos y etc. El nuevo alcance 
     podría ser distinto al anterior, dado el trabajo que haya llegado a 
-    hacer el Proveedor saliente, o porque el Cliente solicitó adicionales. 
+    hacer el proveedor saliente, en cuyo caso el PM será responsable de actualizar 
+    el alcance cargado en sistema. El alcance global del proyecto (el alcance para 
+    con el cliente) no cambia. Tampoco deberá volver a firmar un contrato con el cliente, 
+    sólamente con el nuevo proveedor. 
+    
+    \item El cliente también podría solicitar algún adicional, en cuyo caso se considera 
+    como otro proyecto aparte, el cual deberá empezarse de cero, creando un pre-proyecto. 
+    
 \end{enumerate}

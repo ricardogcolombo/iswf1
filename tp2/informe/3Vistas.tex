@@ -19,6 +19,24 @@ del mismo diagrama serán detalladas luego con otros diagramas.
 \label{fsm-proj}
 \end{figure}
 
+Hacemos algunas aclaraciones sobre algunas transiciones del diagrama.\\
+
+Para \textbf{GerenteAsignaPM}, esto en el caso que se necesite cambiar al PM 
+por diversos motivos:
+\begin{itemize}
+	\item El Gerente debe consultar el estado de los PMs en el sistema. 
+	\item Luego debe seleccionar uno que considere acorde y asignarlo al proyecto 
+	en cuestión. 
+\end{itemize}
+
+Para \textbf{PMDefineAlcance}, esto es en el caso que se necesite cambiar de proveedor:
+\begin{itemize}
+	\item El PM debe relevar lo que falta completar del alcance global 
+	con el cliente. 
+	\item Redefinir el alcance usado para la búsqueda del proveedor. 
+	\item Cargar el nuevo alcance en el sistema para luego buscar el nuevo proveedor. 
+\end{itemize}
+
 A continuación, mostramos un diagrama de actividad que ejemplifica un posible 
 escenario de acciones desde que se carga un pre-proyecto hasta que se elige un 
 proveedor. 
@@ -78,3 +96,30 @@ el proceso de firma de contratos. El mismo se detalla en los siguientes FSM.
 \includegraphics[width=0.8\linewidth]{diag/nuevos/fsm-firmcont2.png}
 \label{fsm-firmcont2}
 \end{figure}
+
+
+	\subsubsection{Mantenimiento de las bases de datos}
+Como se ha mencionado con anterioridad, el Admin es un agente dedicado 
+a mantener las bases de datos de proveedores y clientes actualizadas. 
+El mismo puede enviar solicitudes de datos tanto a proveedores como clientes, 
+para que los mismos actualicen sus datos. 
+
+Al enviar una de estas solicitudes, 
+el sistema genera un formulario (con una cierta vigencia programada) y envía 
+un por mail un link a dicho formulario. 
+
+Cuando un proveedor/cliente recibe este mail, podrá abrir el formulario 
+donde cargar directamente sus nuevos datos. De haber algún problema, o en caso 
+de que decida no usar el formulario, puede enviar un mail directamente al Admin 
+con sus datos para que éste los actualice en el sistema. 
+
+Mostramos ahora 2 diagramas de actividad que detallan los procesos en que 
+el Admin envía una solicitud a un cliente y a un proveedor. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\linewidth]{diag/nuevos/da-admin.png}
+\label{da-admin}
+\end{figure}
+
+
