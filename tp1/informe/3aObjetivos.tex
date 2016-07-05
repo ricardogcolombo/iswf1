@@ -19,6 +19,7 @@ En particular el sistema de pagos no tiene que ver con el sistema, por lo tanto,
 \includegraphics[width=\textwidth, clip=true, trim=15pt 0pt 15pt 0pt]{imagenes/objetivos/objetivos13.pdf}
 \end{figure}
 
+\newpage
 \subsubsection{Requerimientos de Sistema}
 Los requerimientos para esta parte son:
 \begin{itemize}
@@ -44,21 +45,57 @@ Los requerimientos para esta parte son:
 		\item Ofrecer al proveedor cargar propuestas en sistema mediante link de carga
 		\item Notificar al PM ante una carga de propuesta de un proveedor
 	\end{itemize}
-	\item En la firma de contratos: % COMPLETAR
+	\item En la firma de contratos:
+	\begin{itemize}
+		\item Almacenar y permitir al PM seleccionar templates para contratos.
+		\item Proveer al PM mecanismos de carga de contratos (tanto para contratos de clientes como de proveedores).
+		\item Proveer links de carga de contratos a proveedores y clientes
+		\item Notificar al PM ante la carga de un contrato por parte de otro agente (cliente o proveedor). %AGREGAR
+	\end{itemize}
 \end{itemize}
 
 \subsection{Seguimiento de Proyectos}
 \begin{figure}[H]
-\includegraphics[width=\textwidth, clip=true, trim=15pt 0pt 15pt 0pt]{imagenes/objetivos/objetivos14.pdf}
+\includegraphics[width=\textwidth, clip=true, trim=15pt 50pt 15pt 60pt]{imagenes/objetivos/objetivos14.pdf}
 \end{figure}
+
+\subsubsection{Requerimientos de Sistema}
+Los requerimientos para esta parte son:
+\begin{itemize}
+	\item Proveer interfaz al PM para cargar reportes de estado de proyectos.
+	\item Alertar al gerente si un PM no carga sus reportes en los plazos establecidos.
+	\item Mantener un registro de incidentes relacionados con el proveedor.
+\end{itemize}
 
 \subsection{Conseguir Nuevos Proyectos}
 \begin{figure}[H]
-\includegraphics[width=\textwidth, clip=true, trim=15pt 0pt 15pt 0pt]{imagenes/objetivos/objetivos15.pdf}
+\includegraphics[width=\textwidth, clip=true, trim=15pt 20pt 15pt 20pt]{imagenes/objetivos/objetivos15.pdf}
 \end{figure}
 \begin{figure}[H]
-\includegraphics[width=\textwidth, clip=true, trim=15pt 0pt 15pt 0pt]{imagenes/objetivos/objetivos16.pdf}
+\includegraphics[width=\textwidth, clip=true, trim=15pt 40pt 15pt 40pt]{imagenes/objetivos/objetivos16.pdf}
 \end{figure}
+
+\newpage
+\subsubsection{Requerimientos de Sistema}
+Los requerimientos para esta parte son:
+\begin{itemize}
+	\item Ofrecer al cliente la opción de cargar un proyecto junto con su información de contacto.
+	\item Sobre datos de clientes:
+	\begin{itemize}
+		\item Ofrecer al PM y Gerente la opción de cargar un proyecto con datos del cliente. %AGREGAR
+		\item Ofrecer una forma de visualizar y consultar datos de clientes.
+		\item Ofrecer al PM y Gerente la posibilidad de dar de alta, de baja o modificar datos de clientes.
+	\end{itemize}
+	\item Sobre datos de proveedores:
+	\begin{itemize}
+		\item Enviar un link a proveedores para completar su información dada la entrada de información de contacto.
+		\item Notificar Admin ante el alta de un proveedor (datos de contacto).
+		\item Permitir al Admin modificar datos de proveedores.
+		\item Notificar Proveedor y Admin ante el próximo vencimiento de un seguro de caución.
+		\item Enviar un link de carga de seguro de caución al proveedor, junto con la alerta.
+		\item Permitir al Admin cargar un seguro de caución.
+	\end{itemize}
+\end{itemize}
 
 \subsection{Feedback}
 \begin{figure}[H]
