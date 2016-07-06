@@ -63,6 +63,34 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \hline
 \end{longtable}
 
+
+\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:} Consultando Clientes \newline
+        \textbf{Actor:} Administrador\newline
+        \textbf{Pre:}  True\newline
+        \textbf{Post:}El Administrador Consulta los clientes.
+    }\\
+    \hline
+    1.El sistema le solicita que ingrese los filtros de busqueda  & \\
+    \hline
+    2.El Administrador Agrega los datos del cliente que esta buscando& \\
+    \hline
+    3.El Sistema encuentra el cliente y muestra los datos de contacto & 3.1.El cliente solicitado no se encuentra en el sistema \newline 3.2 Fin de C.U.  \\
+    \hline
+    4.El Administrador decide elimiar el clientes. Extiende Caso de uso Borrando cliente.& \\
+    \hline
+    5.El Administrador decide actualizar datos del cliente. Extiende Caso de uso Actualizando datos cliente.& \\
+    \hline
+    6.El Administrador Agregar un nuevo cliente. Extiende Caso de uso Agregando nuevo Cliente.& \\
+    \hline
+    7.El Administrador decide Solicitar Datos al cliente. Extiende Caso de uso Solicitando datos al Cliente.& \\
+    \hline
+    8.Fin de C.U.& \\
+    \hline
+\end{longtable}
+
 \begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -230,9 +258,9 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \hline
     1.El Usuario accede al link que recibio en el Mail y le abre una pagina web con la encuesta a completar & 1.1.El Usuario desestima el mail .\newline 1.2Fin de C.U.\\
     \hline
-    2.El Usuario Completa las preguntas sobre rendimiento del PM de la encuesta y agrega recomendaciones en caso de tenerlas&    \\
-    \hline
-    3.El Usuario Apreta la opcion de enviar el formulario& \\
+    2.El Sistema Muestra un formulario con un Area de texto libre para completar sobre el feedback del PM &\\
+    \hline 
+    3.El Usuario Completa el formulario y Apreta la opcion de enviar el formulario& \\
     \hline
     4.El Sistema Registra la nueva encuesta&\\
     \hline
@@ -504,6 +532,26 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \hline
 \end{longtable}
 
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Agregando Propuesta Proveedor Manualmente \newline
+        \textbf{Actor:} PM\newline
+        \textbf{Pre: }Proyecto Seleccionado\newline
+        \textbf{Post:} Agrega una propuesta de proveedor a un proyecto
+    }\\
+    \hline
+    1.El PM Selecciona la opcion Agregar Propuesta.& \\
+    \hline
+    2.El sistema abre una ventana de dialogo donde le solicita el archivo& \\
+    \hline
+    3. El PM Agrega al archivo y selecciona la opcion guardar & 3.1 El PM Selecciona Cancelar \newline 3.2 Continua en paso 1\\
+    \hline
+    4.El Sistema Agrega la nueva propuesta&\\
+    \hline
+    5.Fin de C.U. &\\
+    \hline
+\end{longtable}
 
 % GERENTE
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
@@ -511,19 +559,17 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:}Asignando PM Al Proyecto\newline
         \textbf{Actor:} Gerente\newline
-        \textbf{Pre: }true\newline
+        \textbf{Pre: }Gerente Autenticado\newline
         \textbf{Post:} Un PM es asignado al proyecto
     }\\
     \hline
-    1.El Gerente ingresa al sistema & \\
+    1.El Gerente Consulta los proyectos nuevos en el sistema USA Consultando Nuevos Trabajos&    \\
     \hline
-    2.El Gerente Consulta los proyectos nuevos en el sistema USA Consultando Nuevos Trabajos&    \\
+    2.El Gerente Consulta los mejores PM para el proyecto dado USA Consutlando TOP Proveedores& \\
     \hline
-    3.El Gerente Consulta los mejores PM para el proyecto dado USA Consutlando TOP Proveedores& \\
+    3.El Gerente Asigna el mejor PM Al Proyecto&\\
     \hline
-    4.El Gerente Asigna el mejor PM Al Proyecto&\\
-    \hline
-    5.Fin del C.U&\\
+    4.Fin del C.U&\\
     \hline
 \end{longtable}
 
@@ -537,17 +583,137 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
         \textbf{Post:}  El Gerente Consulta el estado de un proyecto
     }\\
     \hline
-    1.El Gerente ingresa al sistema & \\
+    1.El Gerente Busca un proyecto segun ciertos filtros. Extiende Consultando Proyectos&    \\
     \hline
-    2.El Gerente Busca un proyecto segun ciertos filtros. Extiende Consultando Proyectos&    \\
+    2.El Sistema le devuelve una lista de proyectos& \\
     \hline
-    3.El Sistema le devuelve una lista de proyectos& \\
+    3.El Gerente Selecciona un proyecto y presiona el boton de obtener estado de proyecto&\\
     \hline
-    4.El Gerente Selecciona un proyecto y presiona el boton de obtener estado de proyecto&\\
+    4.El Sistema Devuelve el estado del proyecto seleccionado &\\
     \hline
-    5.El Sistema Devuelve el estado del proyecto seleccionado &\\
+    5.Fin del C.U.&\\
     \hline
-    6.Fin del C.U.&\\
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando Nuevos Trabajos\newline
+        \textbf{Actor:} Gerente\newline
+        \textbf{Pre: }true\newline
+        \textbf{Post:}  El Gerente Consulta Nuevos Trabajos
+    }\\
+    \hline
+    1.El Selecciona la opcion ver nuevos trabajos&    \\
+    \hline
+    2.El Sistema le devuelve una lista de nuevos trabajos& \\
+    \hline
+    3.El Gerente Selecciona un trabajo y desea dar de alta un nuevo proyecto.Extiende Caso de uso Dando Alta Nuevo Proyecto\\
+    \hline
+    4.Fin del C.U.&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando Nuevos Trabajos\newline
+        \textbf{Actor:} Gerente\newline
+        \textbf{Pre: }El Gerente consulto nuevos trabajos\newline
+        \textbf{Post:}  El Gerente Consulta Nuevos Trabajos
+    }\\
+    \hline
+    1.El Gerente Selecciona  la opcion dar de alta nuevos trabajos&    \\
+    \hline
+    2.El Sistema le consulta si desea agregar un PM al nuevo proyecto& \\
+    \hline
+    3.El Gerente selecciona la opcion SI. Extiende Caso de uso Consultando Lista de PM\\
+    \hline
+    4.El gerente Guarda los cambios. Usa Caso de uso Notificando Alta de Proyecto&\\
+    \hline
+    5.Fin C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Consultando Nuevos Trabajos\newline
+        \textbf{Actor:} Gerente\newline
+        \textbf{Pre: }El Gerente fue notificado de un nuevo Contrato para Aprobar\newline
+        \textbf{Post:}  El Gerente Aprueba un contrato de trabajo
+    }\\
+    \hline
+    1.El Gerente Ingresa al Link en el mail donde fue notificado de un nuevo contrato a aprobar&    \\
+    \hline
+    2.El Sistema le muestra el contrato para aprobar,y ademas tiene la opcion de Aprobar y Rechazar& \\
+    \hline
+    3.El Gerente selecciona la opcion Aprobar. USA Caso de uso Notificando Contrato Aprobado/Rechazado& 3.1 El gerente Selecciona la opcion Rechazar. Usa Caso de uso Notificando Contrato Aprobado/Rechazado\\
+    \hline
+    4.Fin C.U&\\
+    \hline
+\end{longtable}
+% Proveedor
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Respondiendo solicitud Datos/Seguro de caucion\newline
+        \textbf{Actor:} Proveedor\newline
+        \textbf{Pre: }El Proveedor recibio un mail solicitandosele los datos del seguro de caucion\newline
+        \textbf{Post:}  El Proveedor Agrega los datos del seguro de caucion
+    }\\
+    \hline
+    1.El Proveedor Ingresa al Link en el mail donde fue notificado&    \\
+    \hline
+    2.El Sistema le muestra una ventana de dialogo solicitandole un archivo con el seguro de caucion, y el boton de guardar.& \\
+    \hline
+    3.El Proveeodor adjunta el archivo del seguro de caucion y selecciona la opcion Guardar. &\\
+    \hline
+    4.El sistema guarda el seguro de caucion asociandoselo al proveedor. USA Caso de uso Notificando datos/seguro de caución completados al Admin&\\
+    \hline
+    5.Fin C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Respondiendo solicitud de propuesta para proyecto\newline
+        \textbf{Actor:} Proveedor\newline
+        \textbf{Pre: }El Proveedor recibio un mail solicitandosele la propuesta del proyecto\newline
+        \textbf{Post:}  El Proveedor envia la propuesta del proyecto
+    }\\
+    \hline
+    1.El Proveedor Ingresa al Link en el mail donde fue notificado&    \\
+    \hline
+    2.El Sistema le muestra un formulario donde puede ingresar el detalle de los materiales y costos.Ademas puede adjuntar un archivo& \\
+    \hline
+    3.El Proveeodor completa el formulario y selecciona la opcion Guardar. &3.1 El Proveedor Completa el formulario y Adjunta un archivo.Luego selecciona la opcion guardar. Continua en paso 4\\
+    \hline
+    4.El sistema guarda la propuesta y la adjunta al proyecto correspondiente. USA Caso de uso Notificando propuesta enviada a PM&\\
+    \hline
+    5.Fin C.U&\\
+    \hline
+\end{longtable}
+
+\begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
+    \hline
+    \multicolumn{2}{|p{16cm}|}{
+        \textbf{Caso de uso:}Anotandose como proveedor\newline
+        \textbf{Actor:} Proveedor\newline
+        \textbf{Pre: }True\newline
+        \textbf{Post:}  El Proveedor se anota como proveedor valido
+    }\\
+    \hline
+    1.El Proveedor Ingresa a la pagina web de la empresa y selecciona la opcion agregarse como proveedor&    \\
+    \hline
+    2.La pagina web le muestra un formulario solicitando nombre, datos de ubicacion , telefono y mail como datos obligatorios.Ademas tiene un boton de enviar& \\
+    \hline
+    3.El Proveeodor completa los datos y selecciona la opcion Enviar. &\\
+    \hline
+    4.El sistema guarda los datos del proveedor. Notificando Nuevo proveedor al Admin&\\
+    \hline
+    5.Fin C.U&\\
     \hline
 \end{longtable}
 
