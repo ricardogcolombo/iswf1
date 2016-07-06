@@ -85,16 +85,18 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 			Context: Proyecto
 			
 			self.Alcances\applyParam{collect}{AsignacionProveedor}\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
+			
+			self.HistoricoPM\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
 	
 	\item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
 	
 			Context: Proyecto
 			
-			self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{count} $\leq$ 1
 			
-			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{count} $\leq$ 1
 			
-			self.Status > ObraEnCurso $\Rightarrow$ self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} = 0
+			self.Status > ObraEnCurso $\Rightarrow$ self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{count} = 0
 			
 	\item \textbf{Ciclo Proveedor - Asignaci\'on - Propuesta}
 	
@@ -102,11 +104,34 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 			
 			self.Proveedor == self.Seleccionada.Proveedor
 	
+	\item \textbf{Fechas de fin luego de fechas de inicio}
+			
+			Context: Asignación PM
+			
+			self.FechaInicio < self.FechaFin
+			
+			Context: Contrato
+			
+			self.FechaInicio < self.FechaFin
+			
+			Context: Asignación Proveedor
+			
+			self.FechaInicio < self.FechaFin
+			
+			Context: Propuesta Proveedor
+			
+			self.FechaInicio < self.FechaFin			
+	
+	\item \textbf{Definiciones de alcance actual}
+	
+			Context: Proyecto
+			
+			(self.Alcances\applyParam{select}{a$|$a.Actual}\apply{count}<=1) and
+			
+			((self.Status > DefiniendoAlcance) and !self.RedefiniendoProveedor $\Rightarrow$
+			
+			(self.Alcances\applyParam{select}{a$|$a.Actual}\apply{count}==1))
+			
 	%\item \textbf{Los estados del proyecto pero para el otro lado?}
-	%\item \textbf{Fechas de los reportes?}
-	%\item \textbf{Solapamiento de PMs historico}
-	%\item \textbf{Solapamiento de proveedores historico?}
-	%\item \textbf{Porcentaje de las comisiones}
-	%\item \textbf{Fechas de fin luego de fechas de inicio}
 	
 \end{itemize}
