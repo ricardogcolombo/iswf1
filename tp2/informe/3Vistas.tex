@@ -54,7 +54,12 @@ Las acciones destacadas se detallan luego usando FSM.
 
 	\subsubsection{Definir Alcance (PM y Cliente)}
 El proceso de \textit{Definir Alcance} mencionado en el diagrama anterior 
-se detalla mediante el siguiente FSM. 
+se detalla mediante el siguiente FSM. Explica cómo el PM junto con el Cliente 
+definen el alcance global del proyecto. 
+
+En principio, el PM carga un alcance inicial, que el Cliente recibirá y podrá 
+corregir o aprobar. Si el Cliente tiene correcciones, el PM las agrega, y vuelve 
+a cargar el alcance y así sucesivamente, hasta que el alcance es aprobado. 
 
 Luego del mismo, queda definido el alcance del proyecto con el cliente. 
 Potencialmente, el PM podrá luego definir nuevos alcances, para buscar un nuevo 
@@ -71,10 +76,11 @@ se logre cumplir el alcance original definido para el cliente.
 
 		\subsubsection{Búsqueda de proveedor}
 El proceso de \textit{Selección de proveedor} de diagrama \ref{act-busqprov} se detalla mediante 
-los siguientes FSM. Este proceso tiene como salida si se pudo seleccionar de 
-manera exitosa o no un proveedor adecuado para el alcance. En caso de fallar, ya sea 
-por falta de respuestas o porque no hay proveedores aptos, se redefine la búsqueda y 
-se vuelve a empezar. 
+los siguientes FSM. Este proceso tiene 2 salidas posibles; si se pudo seleccionar de 
+manera exitosa un proveedor adecuado para el alcance (y en el tiempo estipulado), 
+o no. En caso de fallar, ya sea 
+por falta de respuestas o porque no hay proveedores aptos, la salida será no exitosa, 
+entonces se redefine el criterio de búsqueda y se vuelve a empezar, con un nuevo deadline. 
 
 \begin{figure}[H]
 \centering
@@ -87,6 +93,16 @@ se vuelve a empezar.
 		\subsubsection{Firma de contratos}
 Una vez seleccionado el proveedor para cumplir con el alcance, se inicia 
 el proceso de firma de contratos. El mismo se detalla en los siguientes FSM. 
+
+El PM es el reponsable de armar los contratos que deberán ser aprobados por los 
+Gerentes. Los Gerentes pueden tener correcciones sobre los contratos que el PM 
+deberá efectuar, pero eventualmente los contratos serán aprobados y se enviarán 
+automáticamente. 
+
+Los FSM mostrados cubren los casos en se deben armar y firmar ambos contratos, 
+que es luego de haber definido el alcance global con el cliente. En el caso de 
+redefinir el proveedor, sólo se ejecutarían las máquinas correspondientes al 
+proveedor (dado que no hay que volver a firmar un contrato con el cliente). 
 
 \begin{figure}[H]
 \centering
@@ -103,6 +119,15 @@ el proceso de firma de contratos. El mismo se detalla en los siguientes FSM.
 \end{figure}
 
 		\subsubsection{Supervisión de la obra y manejo de problemas}
+Una vez empezada la obra, el PM deberá cargar reportes de estado periodicamente al sistema. 
+Los mismos serán notificados a los Gerentes y al Cliente (como se muestra en el diagrama 
+de Casos de Uso). Si pasa demasiado tiempo sin que el PM cargue un reporte, recibirá 
+una alerta. 
+
+Durante la obra, puede suceder que el Cliente tenga algún problema con el Proveedor, 
+en cuyo caso puede quejarse con el PM y juntos deciden si cambiarlo o no. 
+Lo mismo, puede tener algún problema con el PM, donde se quejará con el Gerente y juntos deciden 
+si cambiar el PM. 
 
 \begin{figure}[H]
 \centering
@@ -123,6 +148,12 @@ Como se ha mencionado con anterioridad, el Admin es un agente dedicado
 a mantener las bases de datos de proveedores y clientes actualizadas. 
 El mismo puede enviar solicitudes de datos tanto a proveedores como clientes, 
 para que los mismos actualicen sus datos. 
+
+Puede también que el proveedor/cliente 
+en cuestión no esté en la base de datos (porque es un cliente que manda un pre-proyecto 
+por primera vez, o un proveedor nuevo que no pudo registrarse, por ejemplo). 
+En este caso, el Admin puede crear un nuevo proveedor/cliente en la base 
+con información básica y luego enviar la solicitud. 
 
 Al enviar una de estas solicitudes, 
 el sistema genera un formulario (con una cierta vigencia programada) y envía 
