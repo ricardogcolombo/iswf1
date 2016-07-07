@@ -1,25 +1,40 @@
-\section{Escenarios}
+\section{Vistas - Escenarios informales}
 
-En esta seccion mostramos algunos escenarios relevantes durante la ejecucion del sistema.
+En esta sección mostramos algunos escenarios relevantes para entender el funcionamiento del sistema.
 
-\subsection{Registro de nuevo proyecto} 
-Carlos está teniendo problemas con la obra de sus oficinas, para esto se comunica con su Amigo Mario, dueño de DC Constructores, para indicarle que necesita de sus servicios.
-Luego de una extensa charla Mario, carga en el sistema un nuevo proyecto, el mismo le ofrece varios PM que se encuentran disponibles y sus perfiles dan para la obra de Carlos, pero elige a Esteban.
-El sistema le envía a Esteban un mail notificando que tiene un nuevo proyecto, luego de mirar sus mails, Esteban carga en el sistema los requisitos para el Proyecto y el mismo le devuelve una lista de proveedores que aplican.
-Luego de varias llamadas Esteban da con el mejor proveedor y le presenta a Mario la propuesta, que muy contento por el dinero que va a ganar se la aprueba dando comienzo a las comunicaciones con el cliente que culminan con la firma del contrato.
-Finalizado el proyecto de manera exitosa, Mario se comunica con Carlos para pedirle que le de su feedback, el cual Carlos lo felicita por su trabajo dando buenas referencias del proveedor y del PM, al terminar la conversación Mario carga los datos en el sistema.
+\subsection{Nuevo proyecto} 
+Carlos está teniendo problemas con los caños de agua de su oficina en Paternal, para esto se comunica con su amigo Mario, dueño de DC Constructores, para indicarle que necesita de sus servicios.
+
+Luego de una extensa charla, Mario carga en el sistema un nuevo proyecto. Descarga la lista de PMs y selecciona a Luciana, dado que está libre y tiene un buen puntaje de referencias. El sistema la notifica por mail.
+Luciana define el alcance del proyecto en una reunión con Carlos, y con esa definición comienza a buscar proveedores de plomería en Paternal. 
+Caños S.A. carga su propuesta en el sistema, mientras que Cañomatic S.A. le envía un mail, que ella carga en el sistema como otra propuesta. Finalmente elige la propuesta de Cañomatic porque su puntaje de feedback previo era mejor.
+
+Se reúne con Marta, representante de Cañomatic, para firmar el contrato correspondiente a partir del template \textit{Plomería - arreglos menores} y, luego de la reunión, lo carga en el sistema. Por otra parte arma el contrato para Carlos a partir del template correspondiente para Cliente y lo envía por mail junto con un link de carga. Carlos firma el contrato y lo sube al sistema.
 
 
 \subsection{Registrando un proyecto por sistema} 
-Teniendo grandes relaciones con DC Constructores y debido al éxito que tiene Carlos, decide extender sus oficinas, pero como Carlos es muy Macanudo, decide esta vez no molestar a Mario para pedirle por el trabajo.
-Para esto Carlos ingresa a la página WEB de DC Constructores, ingresa con su usuario y contraseña y se dirige a la sección Mis Proyectos. Una vez en la sección ingresa los datos del proyecto y apreta Enviar.
-El sistema recibe el proyecto de Carlos y envia una notificación via Email a Mario sobre el nuevo proyecto.
+Carlos, muy satisfecho con el trabajo anterior, decide volver a contratar los servicios de DC Construcciones para mejorar la instalación eléctrica. Esta vez ingresa al sitio web de DC Construcciones e ingresa un pre-proyecto junto con sus datos de contacto en el formulario de ingreso de nuevo proyecto.
 
+Mario, en calidad de gerente, se notifica de la carga del proyecto por mail, y asigna a José Luis como PM. José Luis llama a Carlos por teléfono y le pide más datos para llenar la ficha de cliente, que carga luego en el sistema. Luego de esto sigue la etapa de definición de alcance normalmente.
 
-\subsection{Caida de un proveedor durante el proyecto} 
-Esteban estaba iniciándose en sus funciones como PM en DC Constructores, y durante el proyecto de la segunda obra de Carlos, recibe una llamada del proveedor 
-comunicando que no va a poder brindarle mas los servicios. Apenado por esta noticia se dirige al sistema a dar de baja al proveedor,
-el cual le envia un mail automaticamente a Mario con la triste noticia. Ya pasado el mal momento Esteban se pone manos a la obra y comienza en la búsqueda 
-de un nuevo proveedor, Como el sistema es increible le ofrece una nueva lista de proveedores.
-Luego de comunicarse con varios, Esteban arma una nueva propuesta, Este se la comunica a Mario que la aprueba por su buen labor y plena confianza. Felizmente el proyecto termina con éxito y Esteban recibe buenas referencias del cliente, no asi para el proveedor que tuvo que bajarse.
+\subsection{Supervisión y cambio de proveedor. Feedback}
+El proveedor Pinturerías Ataque de Arte está realizando un trabajo de pintura, pintando 2 habitaciones de la concesionaria de Marcela en Ramos Mejía. Eduardo es el PM asignado y la supervisa todos los lunes. En una de sus visitas, Marcela le informa que los pintores faltaron al trabajo el jueves y viernes anterior, y Eduardo lo carga en el sistema. Contacta al proveedor y éste le dice que no volverá a ocurrir.
 
+La semana siguiente Marcela le informa que los pintores faltaron jueves y viernes, y que desea cambiar de proveedor. En este punto sólo una habitación se encuentra pintada.
+
+Ambos se reúnen para definir un nuevo alcance para la habitación que falta, que Eduardo carga en el sistema. Con ese alcance definido busca proveedores por la zona de Ramos Mejía, y El Pincel Alegre S.A. responde con una propuesta. Eduardo acepta la propuesta y se reúne con la representante de EPA S.A. para firmar el contrato. Con el contrato firmado la obra continúa.
+
+Cuando la obra termina, Marcela usa el link de carga de Feedback para decir que Eduardo fue un PM atento que procesó rápidamente los inconvenientes que tuvo con la obra. Eduardo completa el Feedback de ambos proveedores por medio del sistema, detallando que PAA incumplió su contrato por un lado, y que no tuvo ningún problema con EPA, por otra parte. Esto cierra completamente el proyecto.
+
+\subsection{Solicitud de adicionales}
+Marcela, dueña de la concesionaria, decide que, además de pintar, quiere instalar luces nuevas en el techo de la recepción, y se lo notifica a Eduardo. Este carga el nuevo proyecto en el sistema, convirtiéndose en su PM. El gerente se notifica de este nuevo proyecto, mientras que Eduardo se reúne con Marcela para definir el alcance, para luego comenzar la búsqueda de proveedores de trabajos de iluminación en Ramos Mejía.
+
+\subsection{Seguro de caución}
+\subsubsection{Por sistema}
+Gasista Gastón S.A. es un proveedor cuyo seguro de caución está por vencer. El sistema lo alerta por mail (a él y a Roberto, el admin) y él usa el link en la alerta para cargar el seguro nuevo, especificando la fecha de vencimiento.
+
+\subsubsection{Manual}
+Aguas Agustina S.A. es un proveedor cuyo seguro también está por vencer. El sistema la alerta, y también al admin, Roberto. A los pocos días manda el seguro por mail, y Roberto lo sube al sistema.
+
+\subsection{Nuevo proveedor}
+Luces Luciana S.A. desea convertirse en proveedor de DC Construcciones. Ingresa al sitio y se inscribe en el formulario de nuevo proveedor. El sistema le envía un link para que ingrese a un formulario para completar el resto de sus datos. Ella usa el link para llenarlos, y así DC Construcciones ya puede llamarla para trabajos en su rubro.
