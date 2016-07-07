@@ -1,1 +1,28 @@
 \section{Discusión}
+En esta sección trateremos de comparar las distintas técnicas que utilizamos 
+durantes este trabajo, distintos aspectos como el poder expresivo que tienen, la facilidad, 
+cuáles fueron más adecuadas para qué casos, etc. \\
+
+Empezando por Casos de Uso, está técnica es probablemente de las técnicas la que 
+tiene una función más predefinida o fija. Su utilidad está en poder expresar las interacciones, 
+y funciones que tiene cada agente con el sistema, y así también como se relacionan 
+estas interacciones entre ellas (pero no nos permite ver interacciones por fuera del sistema).
+
+En nuestro caso fue práctico que sea una de las primeras partes de los diagramas en realizarse, 
+porque presenta una visión global del trabajo práctico, que después permite enfocarse en partes específicas, principalmente con Actividad y FSM.
+
+En este TP vimos una particularidad notamos que todos los casos de uso se corresponden con un único agente (no existen casos de uso con mas de un agente).\\
+
+Lo mismo ocurre con el diagrama conceptual: sienta la base para que luego se haga todo lo demás. De hecho fue uno de los primeros diagramas que completamos, y fue el primero que plasmó el concepto de que el proyecto tuviera etapas definidas. Luego estas mismas etapas se correspondieron con estados del diagrama FSM que contemplaba el ciclo de vida de un proyecto.
+
+Conceptual es muy útil porque provee una transformación muy directa a objetos/clases en el mundo de la implementación, sin embargo consideramos que OCL puede llegar a ser engorroso para expresar ciertas cosas que en lenguaje coloquial son entendibles (si bien OCL es más riguroso, quizás en la vida real muchas veces no hace falta). Además, no puede modelar comportamientos ni transiciones (a diferencia de FSM, por ejemplo).\\
+
+Al mismo tiempo, FSM tiene varios usos al mismo tiempo: sirve por un lado para presentar el flujo de un proyecto de manera global, pero también para enfocarse en situaciones específicas en las que se involucran diferentes agentes y alertas del sistema (como en el caso del modelo de la obra en curso).
+
+Cuando no se involucran alertas ni demasiadas bifurcaciones ni condiciones, lo más simple es presentar un proceso como diagrama de actividad. Hay algunos casos en los que la misma funcionalidad se puede presentar como diagrama de actividad o FSM, y hay otros (los cronometrados sobre todo) con los que se debe usar FSM.
+
+En el caso de la creación de un proyecto nuevo combinamos ambos diagramas: hicimos un diagrama de actividad de la parte más secuencial del proceso, e incluimos una caja que representa la selección de proveedores, cuyo funcionamiento interno modelamos con FSM. De acuerdo al valor interno de una variable del FSM decidimos el curso en el diagrama de actividad.
+
+Los diagramas que representan partes específicas guardan relación con el FSM que representa el ciclo de vida de un proyecto, por lo que desde el punto de vista de la trazabilidad, la relación entre los diagramas es coherente.
+
+
