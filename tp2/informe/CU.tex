@@ -1,42 +1,57 @@
 \subsection{Casos de Uso}
-    \subsubsection{Diagrama de casos de uso}
+\subsubsection{Diagrama de casos de uso}
 En esta sección intentaremos terminar de definir de manera más precisa y detallada las diferentes interacciones que puedan existir entre nuestro sistema y los diferentes actores. Para ello utilizaremos el modelado con un diagrama de casos de uso.
 
+
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{diag/viejos/cu1.pdf}
+    \centering
+    \includegraphics[width=\linewidth]{diag/viejos/cu1.pdf}
+    \caption{Casos de Uso: Cliente y Subsistema de Mail}
+    \label{cu1}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{diag/viejos/cu2.pdf}
+    \centering
+    \includegraphics[width=\linewidth]{diag/viejos/cu2.pdf}
+    \caption{Casos de Uso: PM y Subsistema de Mail}
+    \label{cu2}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{diag/viejos/cu3.pdf}
+    \centering
+    \includegraphics[width=\linewidth]{diag/viejos/cu3.pdf}
+    \caption{Casos de Uso: Subsistema de Mail}
+    \label{cu3}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{diag/viejos/cu4.pdf}
+    \centering
+    \includegraphics[width=\linewidth]{diag/viejos/cu4.pdf}
+    \caption{Casos de Uso: Gerente y Subsistema de Mail}
+    \label{cu4}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{diag/viejos/cu5.pdf}
+    \centering
+    \includegraphics[width=\linewidth]{diag/viejos/cu5.pdf}
+    \caption{Casos de Uso: Proveedor y Subsistema de Mail}
+    \label{cu5}
 \end{figure}
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{diag/viejos/cu6.pdf}
+    \centering
+    \includegraphics[width=\linewidth]{diag/viejos/cu6.pdf}
+    \caption{Casos de Uso: Administrador y Subsistema de Mail}
+    \label{cu6}
 \end{figure}
 
-    \subsubsection{Detalles}
+\subsubsection{Detalles}
 Para finalizar detallaremos los distintos casos de uso en los que además intentaremos ver cuáles son los comportamientos alternativos que pueda tener nuestro sistema en las distintas circunstancias.
 
+
 % ADMIN
-\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
+\subsubsection{Detalles de Casos de Uso del Administrador}
+\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |}
     \hline
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Consultando Proveedores \newline
@@ -64,7 +79,7 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
 \end{longtable}
 
 
-\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
+\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |}
     \hline
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Consultando Clientes \newline
@@ -91,11 +106,11 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
     \hline
 \end{longtable}
 
-\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
+\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |}
     \hline
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Agregando Proveedor \newline
-        \textbf{Actor:} Admin\newline
+        \textbf{Actor:} Administrador\newline
         \textbf{Pre:}  True\newline
         \textbf{Post:} El proveedor fue agregado al sistema
     }\\
@@ -116,7 +131,7 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
     \hline
 \end{longtable}
 
-\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
+\begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |}
     \hline
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Borrando Proveedor \newline
@@ -228,7 +243,7 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
 
 
 % cliente
-
+\subsubsection{Detalles de Casos de Uso del Cliente}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -259,7 +274,7 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
     1.El Usuario accede al link que recibió en el Mail y le abre una página web con la encuesta a completar & 1.1.El Usuario desestima el mail .\newline 1.2Fin de C.U.\\
     \hline
     2.El Sistema Muestra un formulario con un área de texto libre para completar sobre el feedback del PM &\\
-    \hline 
+    \hline
     3.El Usuario Completa el formulario y Apreta la opción de enviar el formulario& \\
     \hline
     4.El Sistema Registra la nueva encuesta&\\
@@ -335,7 +350,7 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
 
 
 % PM
-
+\subsubsection{Detalles de Casos de Uso del PM}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -554,6 +569,7 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
 \end{longtable}
 
 % GERENTE
+\subsubsection{Detalles de Casos de Uso del Gerente}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -653,7 +669,9 @@ Para finalizar detallaremos los distintos casos de uso en los que además intent
     4.Fin C.U&\\
     \hline
 \end{longtable}
+
 % Proveedor
+\subsubsection{Detalles de Casos de Uso del Proveedor}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{

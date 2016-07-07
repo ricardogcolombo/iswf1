@@ -1,17 +1,22 @@
 \subsection{Modelo conceptual}
 
-Mostramos ahora el modelo conceptual del sistema de la empresa. 
+Mostramos ahora nuestro modelo conceptual del sistema de la empresa. 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/concept2.png}
+\caption{Modelo conceptual (1)}
+\label{concept1}
 \end{figure}
+
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{diag/nuevos/concept1.png}
+\caption{Modelo conceptual (2)}
+\label{concept2}
 \end{figure}
 
 En el mismo puede verse que la clase \textit{Proyecto} tiene un atributo \textit{Status} 
 que es un enumerado, con los estados posibles. Estos estados no son exactamente los 
-mismos que se enuncian en el FSM de flujo general del proyecto, sino más 
+mismos que se enuncian en el FSM de flujo general del proyecto (figura \ref{fsm-proj}), sino más 
 bien son un subconjunto que creemos apropiado. 
 
 La idea es que ese \textit{Status} 
@@ -23,7 +28,7 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 \begin{itemize}
 		\item	\textbf{Momentos en los cuales se puede redefinir el PM o proveedor de un proyecto:}
 	
-			Context: Proyecto
+			\underline{Context: Proyecto}
 			
 			\begin{tabular}{ll}
 				self.redefiniendoProveedor $\Rightarrow$	& BuscandoProveedor < self.Status $\leq$ ObraEnCurso	\\
@@ -32,7 +37,7 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 
 	\item \textbf{Estado del proyecto:}
 
-			Context: Proyecto
+			\underline{Context: Proyecto}
 			
 			\begin{tabular}{ll}
 				\laterThan{EligiendoPM}				& \notEmpty{self.historicoPM} and	\\
@@ -56,7 +61,7 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 			
 	\item \textbf{Seguro de caución al día para proyectos actuales:}
 	
-			Context: Alcance Proyecto
+			\underline{Context: Alcance Proyecto}
 			
 			self.Actual $\Rightarrow$ (\notEmpty{self.Seleccionada.Proveedor.Seguro} \\
 			and self.Seleccionada.Proveedor.Seguro.Vencimiento	\\
@@ -69,12 +74,12 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 			
 	\item \textbf{Los puntajes de los agentes se corresponden con los puntajes seg\'un proyectos:}
 			
-			Context: PM
+			\underline{Context: PM}
 			
 			self.puntaje ==	self.Asignaciones\applyParam{collect}{FeedbackPM}\applyParam{collect}{Calificacion}\apply{average}
 			\footnote{Consideramos que average de vacío da 0.}
 			
-			Context: Proveedor
+			\underline{Context: Proveedor}
 			
 			self.puntaje ==	self.Asignaciones\applyParam{collect}{FeedbackProv}\applyParam{collect}{Calificacion}\apply{average}
 			\footnote{Idem nota anterior}
@@ -82,31 +87,56 @@ qué cosas debe tener cargadas un proyecto en determinada etapa.
 	
 	\item \textbf{Las asignaciones no se pisan en tiempo}
 	
-			Context: Proyecto
+			\underline{Context: Proyecto}
 			
 			self.Alcances\applyParam{collect}{AsignacionProveedor}\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
+			
+			self.HistoricoPM\applyParam{forAll}{a1 $\neq$ a2$\|$a1.Inicio > a2.Fin or a2.Inicio > a1.Fin}
 	
 	\item \textbf{Hay a lo sumo un alcance actual y una asignación de PM actual}
 	
-			Context: Proyecto
+			\underline{Context: Proyecto}
 			
-			self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{count} $\leq$ 1
 			
-			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{size} $\leq$ 1
+			self.HistoricoPM\applyParam{select}{a$\|$a.Actual}\apply{count} $\leq$ 1
 			
-			self.Status > ObraEnCurso $\Rightarrow$ self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{size} = 0
+			self.Status > ObraEnCurso $\Rightarrow$ self.Alcances\applyParam{select}{a$\|$a.Actual}\apply{count} = 0
 			
 	\item \textbf{Ciclo Proveedor - Asignaci\'on - Propuesta}
 	
-			Context: Asignación Proveedor
+			\underline{Context: Asignación Proveedor}
 			
 			self.Proveedor == self.Seleccionada.Proveedor
 	
+	\item \textbf{Fechas de fin luego de fechas de inicio}
+			
+			\underline{Context: Asignación PM}
+			
+			self.FechaInicio < self.FechaFin
+			
+			\underline{Context: Contrato}
+			
+			self.FechaInicio < self.FechaFin
+			
+			\underline{Context: Asignación Proveedor}
+			
+			self.FechaInicio < self.FechaFin
+			
+			\underline{Context: Propuesta Proveedor}
+			
+			self.FechaInicio < self.FechaFin			
+	
+	\item \textbf{Definiciones de alcance actual}
+	
+			\underline{Context: Proyecto}
+			
+			(self.Alcances\applyParam{select}{a$|$a.Actual}\apply{count}<=1) and
+			
+			((self.Status > DefiniendoAlcance) and !self.RedefiniendoProveedor $\Rightarrow$
+			
+			(self.Alcances\applyParam{select}{a$|$a.Actual}\apply{count}==1))
+			
 	%\item \textbf{Los estados del proyecto pero para el otro lado?}
-	%\item \textbf{Fechas de los reportes?}
-	%\item \textbf{Solapamiento de PMs historico}
-	%\item \textbf{Solapamiento de proveedores historico?}
-	%\item \textbf{Porcentaje de las comisiones}
-	%\item \textbf{Fechas de fin luego de fechas de inicio}
 	
 \end{itemize}
