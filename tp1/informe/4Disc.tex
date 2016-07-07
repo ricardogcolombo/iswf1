@@ -1,1 +1,30 @@
 \section{Discusión}
+\subsection{Análisis de alternativas}
+En esta sección se van a analizar las diferentes alternativas de implementación de la solución que se propone.
+
+\subsubsection{Firma de contratos}
+En la parte de firma de contratos, se proponen dos alternativas para el procedimiento a realizar cuando el proveedor o cliente (en adelante \textit{el otro agente}) no usa el link de carga para cargar su contrato.
+
+Nosotros pensamos que la carga de contrato mediante el link es la preferible, ya que conlleva menos esfuerzo para el PM, pero no siempre es factible, ya que requiere que el cliente sea capaz de escanear un documento, de firmar el contrato sin tener una reunión personal con ningún miembro de la empresa y de manejar links de carga y un sistema de mails.
+Estas son varias acciones no triviales que no podemos garantizar en el cliente, ya sea porque no sabe realizarlas o porque no tiene la voluntad.
+Por lo tanto hay que proponer una solución alternativa.
+
+En este caso se propusieron dos: enviar el contrato por mail y que el otro agente responda por mail, o reunirse físicamente con él.
+
+El primero de los casos es más esfuerzo para el PM (ya que tiene que subir el contrato) pero no necesita destinar un tiempo de reunión con el otro agente, por lo tanto lleva menos tiempo que la segunda alternativa manual.
+Al mismo tiempo, la primera alternativa soluciona algunos de los requerimientos para con el otro agente (ya no tiene que usar el link, y puede mantener una conversación por mail con el PM), sin embargo, no todos porque, por ejemplo, puede ser que el agente necesite una reunión personal por alguna razón, que no tenga escáner o que no sepa adjuntar un archivo en un mail.
+
+Nuevamente, entre las dos alternativas, la primera es la deseable cuando el otro agente está dispuesto a tomarla, y la segunda debería aplicarse solamente si hay algún requerimiento especial.
+
+\subsubsection{Periodicidad de la supervisión de la obra}
+Se proponen dos alternativas: un sistema de control periódico (cada semana, cada 15 días, etc) y un sistema de control por hitos.
+
+La principal ventaja del sistema por hitos es que espacia las visitas del PM, que la realiza solamente cuando es relevante para monitorear la obra, en el caso en el que no surgen inconvenientes. Esto puede hacer que cada PM pueda supervisar más proyectos, con lo que se puede tener una plante menor de PMs. Sin embargo, presenta problemas de implementación:
+\begin{itemize}
+	\item Hay que pensar especialmente cada una de las fechas de las visitas, estimando el plazo de completitud de cada etapa.
+	\item Si el espacio entre hitos es muy largo, la obra puede pararse sin que el PM lo note.
+	\item Como las visitas son esporádicas, se corre el riesgo de que el gerente nunca detecte que el PM está incumpliendo el monitoreo. Cuenta sólo con un llamado del cliente quejándose para notarlo.
+	\item No hay un contacto fluido con el cliente. Puede dificultar la detección de pedidos de adicionales.
+\end{itemize}
+
+Tomar un camino de implementación o el otro depende principalmente de priorizar la eficiencia de los PMs en cantidad de proyectos vs. la capacidad de notar irregularidades en un plazo acotado (el período entre visitas consecutivas del PM).
