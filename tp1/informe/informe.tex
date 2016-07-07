@@ -39,12 +39,12 @@
 \usepackage{url}
 \usepackage{float}
 
+\usepackage{pdfpages}
 \newcommand{\cod}[1]{{\tt #1}}
 \newcommand{\negro}[1]{{\bf #1}}
 \newcommand{\ital}[1]{{\em #1}}
 \newcommand{\may}[1]{{\sc #1}}
 \newcommand{\tab}{\hspace*{2em}}
-
 \hypersetup{
  pdfstartview= {FitH \hypercalcbp{\paperheight-\topmargin-1in-\headheight}},
  pdfauthor={Grupo},
@@ -79,7 +79,7 @@
 
 \lstset{escapechar=@}
 
-
+\setboolean{@twoside}{false}
 \begin{document}
 
 \newcolumntype{C}{>{\centering\arraybackslash}X}
@@ -123,6 +123,7 @@
 \include{2Presun}
 \include{3Vistas}
 \include{3aObjetivos}
+\include{6aContexto}
 \include{4Disc}
 \include{5Conclu}
 
