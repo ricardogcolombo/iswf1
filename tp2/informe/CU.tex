@@ -1,41 +1,55 @@
 \subsection{Casos de Uso}
-	\subsubsection{Diagrama de casos de uso}
+	\subsubsection{Diagrama de Casos de Uso}
 En esta sección intentaremos terminar de definir de manera mas precisa y detallada las diferentes interacciones que puedan existir entre nuestro sistema y los diferentes actores. Para ello utilizaremos el modelado con un diagrama de casos de uso.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{diag/viejos/cu1.pdf}
+\caption{Casos de Uso: Cliente y Subsistema de Mail}
+\label{cu1}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{diag/viejos/cu2.pdf}
+\caption{Casos de Uso: PM y Subsistema de Mail}
+\label{cu2}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{diag/viejos/cu3.pdf}
+\caption{Casos de Uso: Subsistema de Mail}
+\label{cu3}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{diag/viejos/cu4.pdf}
+\caption{Casos de Uso: Gerente y Subsistema de Mail}
+\label{cu4}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{diag/viejos/cu5.pdf}
+\caption{Casos de Uso: Proveedor y Subsistema de Mail}
+\label{cu5}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{diag/viejos/cu6.pdf}
+\caption{Casos de Uso: Administrador y Subsistema de Mail}
+\label{cu6}
 \end{figure}
 
-	\subsubsection{Detalles}
-Para finalizar detallaremos los distintos casos de uso en los que ademas intentaremos ver cuales son los comportamientos alternativos que pueda tener nuestro sistema en las distintas sircunstancias.
+Para finalizar detallaremos los distintos casos de uso en los que ademas 
+intentaremos ver cuales son los comportamientos alternativos que pueda 
+tener nuestro sistema en las distintas circunstancias.
 
 % ADMIN
+		\subsubsection{Detalles de Casos de Uso del Administrador}
 \begin{longtable}{| p{.60\textwidth} | p{.40\textwidth} |} 
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -95,7 +109,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     \hline
     \multicolumn{2}{|p{16cm}|}{
         \textbf{Caso de uso:} Agregando Proveedor \newline
-        \textbf{Actor:} Admin\newline
+        \textbf{Actor:} Administrador\newline
         \textbf{Pre:}  True\newline
         \textbf{Post:} El proveedor fue agregado al sistema
     }\\
@@ -228,7 +242,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
 
 
 % cliente
-
+		\subsubsection{Detalles de Casos de Uso del Cliente}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -335,7 +349,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
 
 
 % PM
-
+		\subsubsection{Detalles de Casos de Uso del PM}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -554,6 +568,7 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
 \end{longtable}
 
 % GERENTE
+		\subsubsection{Detalles de Casos de Uso del Gerente}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
@@ -653,7 +668,9 @@ Para finalizar detallaremos los distintos casos de uso en los que ademas intenta
     4.Fin C.U&\\
     \hline
 \end{longtable}
+
 % Proveedor
+		\subsubsection{Detalles de Casos de Uso del Proveedor}
 \begin{longtable}{|p{.60\textwidth}|p{.40\textwidth}|}
     \hline
     \multicolumn{2}{|p{16cm}|}{
